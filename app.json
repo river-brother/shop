@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/merchant/merchant",
+    "pages/goods/goods"
+  ],
+
+  "tabBar": {
+    "color": "#b1b1b1",
+    "selectedColor": "black",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "#f4f4f4",
+    "list": [
+      {
+        "pagePath": "pages/merchant/merchant",
+        "text": "商家",
+        "iconPath": "pages/img/homepage@3x.png",
+        "selectedIconPath": "pages/img/homepage_fill@2x.png"
+      },
+      {
+        "pagePath": "pages/goods/goods",
+        "text": "商品",
+        "iconPath": "pages/img/service@3x.png",
+        "selectedIconPath": "pages/img/service_fill@2x.png"
+      }
+    ]
+  }
+}

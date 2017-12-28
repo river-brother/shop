@@ -1,0 +1,32 @@
+<view class='merchant'>
+
+  <swiper class='imgs' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150"/>
+      </swiper-item>
+    </block>
+    <text>{{num}}/{{nums}}</text>
+  </swiper>
+
+  <view class='theme'>
+    <view class='name'>
+      <text>隆江猪脚饭</text>
+      <view><text>其他分店</text><image class='enter' src='../img/enter.png'></image></view>
+    </view>
+    <text class='type'>美食快餐</text>
+    <text class='time'>营业时间: 8:00-20:00</text>
+    <view class='notice'>
+      <image class='laba' src='../img/systemprompt_fill@2x.png'></image>
+      <text>这是一段简短的店铺公告, 滚动显示</text>
+    </view>
+  </view>
+
+  <view class='phone'>
+    <view>
+      <image src='../img/phone.png'></image>
+      <text>028-82611957</text>
+    </view>
+  </view>
+  
+</view>
