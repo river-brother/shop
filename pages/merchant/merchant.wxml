@@ -11,21 +11,58 @@
 
   <view class='theme'>
     <view class='name'>
-      <text>隆江猪脚饭</text>
-      <view><text>其他分店</text><image class='enter' src='../img/enter.png'></image></view>
+      <text>{{name}}</text>
+      <view><text>{{else}}</text><image class='enter' src='../img/enter.png'></image></view>
     </view>
-    <text class='type'>美食快餐</text>
-    <text class='time'>营业时间: 8:00-20:00</text>
+    <text class='type'>{{type}}</text>
+    <text class='time'>{{time}}</text>
     <view class='notice'>
       <image class='laba' src='../img/systemprompt_fill@2x.png'></image>
-      <text>这是一段简短的店铺公告, 滚动显示</text>
+      <text>{{notice}}</text>
     </view>
   </view>
 
   <view class='phone'>
     <view>
       <image src='../img/phone.png'></image>
-      <text>028-82611957</text>
+      <text>{{phone}}</text>
+    </view>
+    <view bindtap='phonecallevent'>
+      <text>点击通话</text>
+      <image class='enter' src='../img/enter.png'></image>
+    </view>
+  </view>
+  <view class='site'>
+    <view>
+      <image src='../img/dz.png'></image>
+      <text>{{site}}</text>
+    </view>
+    <view bindtap='siteclick'>
+      <text>查看详情</text>
+      <image class='enter' src='../img/enter.png'></image>
+    </view>
+  </view>
+
+  <view class='intro'>
+    <view></view>
+    <text>店铺简介</text>
+    <view class='info'>
+      <text data-index="index">{{intro_slice ? intro_slice : intro}}</text>
+      <text class="full" bindtap='display' wx:if="{{intro.length>76}}">{{intro_slice ? '展开全部' : ''}}</text>
+      <text class="full" bindtap='pack' wx:else>{{intro.length < 76 ?  '' : '收起'}}</text>
+    </view>
+  </view>
+
+  <view class='shopp'>
+    <view></view>
+    <text>商品展示</text>
+    <view><text>全部</text><image class='enter' src='../img/enter.png'></image></view>
+    <view class='box'>
+      <view class='list' wx:for="{{list}}" wx:key="" wx:if="{{index < 10}}">
+        <image src='{{item.img}}'></image>
+        <view class='title'>{{item.title}}</view>
+        <view class='money'><text>￥</text><text>{{item.money}}</text></view>
+      </view>
     </view>
   </view>
   

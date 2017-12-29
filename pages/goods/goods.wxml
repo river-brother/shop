@@ -1,1 +1,41 @@
-goods
+<view class='goods'>
+
+  <view class='sousuo'>
+    <view>
+      <image src='../img/suosou.png'></image>
+      <input type='text' placeholder='搜索'></input>
+    </view>
+  </view>
+
+  <view class='cont'>
+
+    <view class='left'>
+      <block wx:for="{{leftTabArray}}" wx:key=""> 
+        <view class="box {{item.selected ? 'left_cell_selected' : ''}}" bindtap="leftCellTap" data-index='{{index}}'>
+          <text>{{item.mold}}</text>
+        </view>
+      </block>
+    </view>
+    
+
+    <view class='right'>
+      <block  wx:for="{{rightTabArray}}"  wx:key="">
+        <view class='box'>
+          <text class='mold'>{{item.mold}}</text>
+          <block  wx:for="{{item.rightShopp}}"  wx:key="" wx:for-item="ite">
+            <view class='row'>
+              <image src='{{ite.img}}'></image>
+              <view class='rel'>
+                <text class='title'>{{ite.title}}</text>
+                <view class='money'><text>￥</text><text>{{ite.money}}</text></view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+
+  </view>
+
+
+</view>

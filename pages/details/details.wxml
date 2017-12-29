@@ -1,0 +1,25 @@
+<view class='details'>
+  <image class='main' src='{{img}}'></image>
+
+  <view class='bigbox'>
+    <view class='name'>
+      <view><text>{{title}}</text></view>
+      <view><text>￥</text><text>{{money}}</text></view>
+    </view>
+
+    <view class='size'>
+      <view><text>{{net}}:</text><text>{{kg}}</text></view>
+      <view><text>{{expect}}:</text><text>{{day}}</text></view>
+    </view>
+    
+    <view class='referral'>
+      <text>{{referral}}:</text>
+      <view>{{text}}</view>
+      <block wx:for="{{list}}" wx:key="" wx:if="{{index < 5}}">
+         <image src='{{item.img}}'></image>
+      </block>
+     
+    </view>
+
+  </view>
+</view>

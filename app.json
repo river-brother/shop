@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/merchant/merchant",
+    "pages/details/details",
     "pages/goods/goods"
+    
+    
   ],
 
   "tabBar": {
@@ -12,7 +15,7 @@
     "list": [
       {
         "pagePath": "pages/merchant/merchant",
-        "text": "商家",
+        "text": "店铺",
         "iconPath": "pages/img/homepage@3x.png",
         "selectedIconPath": "pages/img/homepage_fill@2x.png"
       },

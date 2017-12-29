@@ -1,0 +1,80 @@
+page{
+  background: #fafafa;
+}
+.details{
+  display: flex;
+  justify-content: center;
+}
+.details .main{
+  width: 100%;
+  height: 425rpx;
+}
+.details .bigbox{
+  width: 675rpx;
+  border-radius: 10rpx;
+  background: white;
+  position: absolute;
+  box-shadow: 0px 20rpx 10px #f4f4f4;
+  top: 305rpx;
+  padding-left: 30rpx;
+  margin-bottom: 22rpx;
+}
+.details .bigbox .name{
+  display: flex;
+  justify-content: space-between;
+}
+.details .bigbox .name view:nth-child(1){
+  width: 375rpx;
+  height: 154rpx;
+  border-bottom: 2px solid #ebebeb;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.details .bigbox .name view:nth-child(1) text{
+  width: 300rpx;
+  display: block;
+  padding-top: 40rpx;
+  line-height: 50rpx;
+}
+.details .bigbox .name view:nth-child(2){
+  color: #ff2341;
+  font-size: 26rpx;
+  margin-top: 40rpx;
+  margin-right: 28rpx;
+}
+.details .bigbox .size{
+  font-size: 26rpx;
+  width: 375rpx;
+  height: 110rpx;
+  border-bottom: 2px solid #ebebeb;
+  line-height: 40rpx;
+}
+.details .bigbox .size view{
+  letter-spacing: 2rpx;
+}
+.details .bigbox .size view:nth-child(1){
+  padding-top: 17rpx;
+}
+.details .bigbox .size view text:nth-child(2){
+  color: #949494;
+}
+.details .bigbox .referral text{
+  display: block;
+  color: #979797;
+  font-size: 26rpx;
+  margin-top: 35rpx;
+  margin-bottom: 35rpx;
+}
+.details .bigbox .referral view{
+  font-size: 26rpx;
+  line-height: 38rpx;
+  letter-spacing: 2rpx;
+}
+.details .bigbox .referral image{
+  width: 608rpx;
+  height: 300rpx;
+  margin-top: 35rpx;
+}
+.details .bigbox .referral image:last-child{
+  margin-bottom: 20rpx;
+}
