@@ -48,6 +48,7 @@ page{
   height: 110rpx;
   border-bottom: 2px solid #ebebeb;
   line-height: 40rpx;
+  margin-bottom: 10rpx;
 }
 .details .bigbox .size view{
   letter-spacing: 2rpx;
@@ -59,7 +60,6 @@ page{
   color: #949494;
 }
 .details .bigbox .referral text{
-  display: block;
   color: #979797;
   font-size: 26rpx;
   margin-top: 35rpx;
@@ -78,3 +78,9 @@ page{
 .details .bigbox .referral image:last-child{
   margin-bottom: 20rpx;
 }
+ .details .show{
+  display: block;
+}
+.details .hide{
+  display: none;
+} 

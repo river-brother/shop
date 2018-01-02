@@ -1,6 +1,6 @@
 <view class='merchant'>
 
-  <swiper class='imgs' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <swiper class='imgs' indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="swiperCurrent" bindchange="swiperChange">
     <block wx:for="{{imgUrls}}" wx:key="">
       <swiper-item>
         <image src="{{item}}" class="slide-image" width="355" height="150"/>
@@ -18,11 +18,15 @@
     <text class='time'>{{time}}</text>
     <view class='notice'>
       <image class='laba' src='../img/systemprompt_fill@2x.png'></image>
-      <text>{{notice}}</text>
+      <view class="marquee">
+        <view class="content">
+            <text>{{notice}}</text>
+        </view>
+      </view>
     </view>
   </view>
 
-  <view class='phone'>
+   <view class='phone'>
     <view>
       <image src='../img/phone.png'></image>
       <text>{{phone}}</text>
@@ -47,9 +51,9 @@
     <view></view>
     <text>店铺简介</text>
     <view class='info'>
-      <text data-index="index">{{intro_slice ? intro_slice : intro}}</text>
-      <text class="full" bindtap='display' wx:if="{{intro.length>76}}">{{intro_slice ? '展开全部' : ''}}</text>
-      <text class="full" bindtap='pack' wx:else>{{intro.length < 76 ?  '' : '收起'}}</text>
+      <text>{{intro_2 ? intro_2 : intro}}</text>
+      <text class="full" bindtap='display' wx:if="{{action === true && intro.length > 76 }}">{{intro_2.length > 76 ? '展开全部' : ''}}</text>
+      <text class="full" bindtap='pack' wx:else>{{intro_2.length < 76 ?  '' : '收起'}}</text>
     </view>
   </view>
 
@@ -64,6 +68,6 @@
         <view class='money'><text>￥</text><text>{{item.money}}</text></view>
       </view>
     </view>
-  </view>
+  </view> 
   
 </view>

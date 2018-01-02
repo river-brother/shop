@@ -7,16 +7,16 @@
       <view><text>￥</text><text>{{money}}</text></view>
     </view>
 
-    <view class='size'>
-      <view><text>{{net}}:</text><text>{{kg}}</text></view>
-      <view><text>{{expect}}:</text><text>{{day}}</text></view>
+    <view class="size {{kg === '' && day === '' ? 'hide' : 'show'}}" >
+      <view  class="{{kg === '' ? 'hide' : 'show'}}"><text>{{net}}:</text><text>{{kg}}</text></view>
+      <view class="{{day === '' ? 'hide' : 'show'}}"><text>{{expect}}:</text><text>{{day}}</text></view>
     </view>
     
-    <view class='referral'>
-      <text>{{referral}}:</text>
+    <view class="referral">
+      <text class="{{text === '' ? 'hide' : 'show'}}">{{referral}}</text>
       <view>{{text}}</view>
       <block wx:for="{{list}}" wx:key="" wx:if="{{index < 5}}">
-         <image src='{{item.img}}'></image>
+         <image class="{{item.img === '' ? 'hide' : 'show'}}" src='{{item.img}}'></image>
       </block>
      
     </view>

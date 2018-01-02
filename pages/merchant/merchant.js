@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    action: true,
     imgUrls: [
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
@@ -11,20 +12,22 @@ Page({
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ],
+    swiperCurrent: 1,
     indicatorDots: false,
     autoplay: true,
-    interval: 5000,
+    interval: 3000,
     duration: 1000,
     num: 1,
-    nums: 5,
+    nums: 0,
     name: '隆江猪脚饭',
     else: '其他分店',
     type: '美食快餐',
     time: '营业时间: 8:00-20:00',
-    notice: '这是一段简短的店铺公告, 滚动显示',
+    notice: '这是一段公告!这是一段公告!',
     phone: '028-82611957',
     site: '成都市高新区天府四街银泰城3F',
-    intro: '隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分, 具有2222',
+    intro: '隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分, 具有隆江猪脚饭是用猪脚',
+    intro_2: '',
     list: [
       {
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -78,13 +81,17 @@ Page({
       }
     ]
   },
+  //轮播
+  swiperChange: function(e) {
+    let idx = e.detail.current + 1
+    this.setData({
+      num: idx
+    })
+  },
   //点击通话
   phonecallevent: function() {
     wx.makePhoneCall({
-      phoneNumber: this.data.phone,
-      success: function() {
-
-      }
+      phoneNumber: this.data.phone
     })
   },
   //位置详情
@@ -103,19 +110,52 @@ Page({
       }
     })
   },
+  //展开全部
+  display: function (e) {
+    let cont = this.data.intro
+    if (cont.length > 76) {
+      var intro_slice = this.data.intro
+    }
+    this.setData({
+      intro_2: intro_slice,
+      action: false
+    })
+  },
+  //收起
+  pack: function () {
+    let cont = this.data.intro
+    let cont_2 = this.data.intro_2
+    cont_2 = cont
+    console.log(cont_2)
+    if (cont.length > 76) {
+      var intro_slice = cont.slice(0, 76) + '...'
+    }
+    this.setData({
+      intro_2: intro_slice,
+      action: true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    // let data = this.data.intro
-    // for (let index in data) {
-    //   if (data[index].intro.length > 76) {
-    //     data[index].intro_slice = data[index].intro.slice(0, 76) + '...'
-    //   }
-    // }
-    // this.setData({
-    //   intro: data
-    // })
+  onLoad: function (e) {
+    //轮播总数
+    let idx = this.data.imgUrls.length
+    this.setData({
+      nums: idx   
+    })
+
+    //全文
+    let cont = this.data.intro
+    let cont_2 = this.data.intro_2
+    cont_2 = cont
+    if (cont.length > 76) {
+      var intro_slice = cont.slice(0, 76) + '...'
+    }
+    this.setData({
+      intro_2: intro_slice,
+      action: true
+    })    
   },
 
   /**

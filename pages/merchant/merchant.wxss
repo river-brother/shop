@@ -152,6 +152,7 @@
   position: relative;
   width: 100%;
   border-bottom:20rpx solid #f5f5f5; 
+  padding-bottom: 55rpx;
 }
 .merchant .intro> view:nth-child(1){
   width: 200rpx;
@@ -175,16 +176,19 @@
   text-align: center;
   line-height: 50rpx;
 }
+.merchant .intro .info{
+  text-indent: 2em;
+  margin-left: 43rpx;
+  margin-right: 40rpx;
+}
 .merchant .intro .info text{
   color: #949494;
   font-size: 26rpx;
 }
-.merchant .intro .info text:nth-child(1){
-  display: block;
-  text-indent: 2em;
-  margin-left: 43rpx;
-  margin-right: 40rpx;
-  margin-bottom: 55rpx;
+
+.merchant .intro .info .full{
+  color: #343434;
+  border-bottom: 1px solid #343434;
 }
 
 .merchant .shopp{
@@ -250,4 +254,24 @@
   font-size: 26rpx;
   margin-top: 50rpx;
   margin-bottom: 30rpx;
+}
+ @keyframes kf-marque-animation{ 
+   0% { transform: translateX(0); }  
+   100% { transform: translateX(-100%); } 
+} 
+.marquee{
+    width: 450rpx;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    position: relative;
+    font-size: 26rpx;
+}
+.marquee .content{
+    display: inline-block;
+    position: relative;
+    padding-left: 20rpx;
+    animation: kf-marque-animation 5s linear 2s infinite normal; /*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
 }
