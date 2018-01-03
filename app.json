@@ -1,9 +1,13 @@
 {
   "pages": [
-    "pages/details/details",
+    "pages/goods/goods",
     "pages/merchant/merchant",
+    "pages/details/details"
     
-    "pages/goods/goods"
+    
+    
+    
+    
   ],
 
   "tabBar": {

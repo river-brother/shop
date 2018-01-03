@@ -69,5 +69,9 @@
       </view>
     </view>
   </view> 
+
+  <view class='logo'>
+    <image src='../img/logo.png'></image>
+  </view>
   
 </view>

@@ -1,4 +1,4 @@
-var leftSelectedIdx = 0;/*左侧选中的行号*/
+const app = getApp()
 
 Page({
 
@@ -6,12 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
+    curNav: 1,
+    curIndex: 0,
     leftTabArray: [
       {
+        id: 1,
         mold: '抄手'
       },
       {
+        id: 2,
         mold: '面条'
+      },
+      {
+        id: 3,
+        mold: '3'
+      },
+      {
+        id: 4,
+        mold: '4'
       }
     ],
     rightTabArray: [
@@ -68,6 +80,14 @@ Page({
       
     ]
   },
+  switchRightTab: function (e) {
+    let id = e.target.dataset.id,
+        index = parseInt(e.target.dataset.index);
+    this.setData({
+      curNav: id,
+      curIndex: index
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -83,6 +103,20 @@ Page({
     }
     that.setData({
       leftTabArray: temArray
+    })
+    
+    console.log(app.globalData.access_token)
+    app.getToken(function(token){
+      wx.request({
+        url: app.constData.server + '/api/products',
+        method: 'GET',
+        header: {
+          'authorization': 'Bearer ' + wx.getStorageSync('token')
+        },
+        success: function (res) {
+          console.log(res.data)
+        }
+      })
     })
   },
 

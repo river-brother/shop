@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
 
   /**
@@ -7,16 +9,22 @@ Page({
     img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
     title: '【老麻龙抄手】特色海味大抄手',
     money: '19.00',
-    net: '净含量',
-    kg: '150G',
-    expect: '保质期',
-    day: '21天',
+    kind: [
+      {
+        nature: '净含量:',
+        price: '150G'
+      },
+      {
+        nature: '保质期:',
+        price: '30天'
+      }
+    ],
     referral: '产品介绍:',
     text: '隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分,隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分',
     list: [
       {
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-      },
+      }
     ]
   },
 

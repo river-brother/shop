@@ -9,16 +9,16 @@
 
   <view class='cont'>
 
-    <view class='left'>
+    <scroll-view class='left' scroll-y>
       <block wx:for="{{leftTabArray}}" wx:key=""> 
-        <view class="box {{item.selected ? 'left_cell_selected' : ''}}" bindtap="leftCellTap" data-index='{{index}}'>
-          <text>{{item.mold}}</text>
+        <view class="box {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-id="{{item.id}}" data-index='{{index}}' >
+          {{item.mold}}
         </view>
       </block>
-    </view>
+    </scroll-view>
     
 
-    <view class='right'>
+    <scroll-view class='right' scroll-y>
       <block  wx:for="{{rightTabArray}}"  wx:key="">
         <view class='box'>
           <text class='mold'>{{item.mold}}</text>
@@ -33,9 +33,11 @@
           </block>
         </view>
       </block>
-    </view>
+      <view class='logo'>
+        <image src='../img/logo.png'></image>
+      </view> 
+    </scroll-view>
 
   </view>
-
 
 </view>
