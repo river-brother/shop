@@ -6,21 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+    zhu_W: 0,
+    zhu_H: 0,
+    main_img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
     title: '【老麻龙抄手】特色海味大抄手',
-    money: '19.00',
-    kind: [
-      {
-        nature: '净含量:',
-        price: '150G'
-      },
-      {
-        nature: '保质期:',
-        price: '30天'
-      }
-    ],
+    price: '19.00',
+    net: '净含量:',
+    weight: '150G',
+    expect: '保质期:',
+    over: '30天',
     referral: '产品介绍:',
-    text: '隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分,隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分',
+    desc: '隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分,隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分',
     list: [
       {
         img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
@@ -32,7 +28,46 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    let that = this
+    //图片的宽高
+    wx.getSystemInfo({
+      success: function (res) {
+        var windowWidth = res.windowWidth
+        var windowHeight = res.windowHeight
+        console.log(windowWidth, windowHeight)
+        that.setData({
+          zhu_H: windowWidth * 642.0 / 750.0,//高
+        })
+      }
+    })
+
+    app.getToken(function (token) {
+      let arr = [];
+      wx.request({
+        url: app.constData.server + '/api/products/' + options.id,
+        method: 'GET',
+        header: {
+          'authorization': 'Bearer ' + wx.getStorageSync('token')
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            main_img: res.data.data.main_img,
+            price: res.data.data.price,
+            title: res.data.data.title,
+            weight: res.data.data.weight,
+            over: res.data.data.over,
+            desc: res.data.data.desc,
+          })
+          for(var x in res.data.data.attachments){
+            arr.push(res.data.data.attachments[x].link)
+          }
+          that.setData({
+            list:arr
+          })
+        }
+      })
+    })
   },
 
   /**

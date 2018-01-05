@@ -6,7 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    width: 0,
     action: true,
+    imgwidth: 0,
+    imgheight: 0,
+    img2width: 0,
+    img2height: 0,
     imgUrls: [
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
@@ -21,67 +26,18 @@ Page({
     duration: 1000,
     num: 1,
     nums: 0,
-    name: '隆江猪脚饭',
-    else: '其他分店',
+    shop_name: '',
+    //else: '其他分店',
     type: '美食快餐',
     time: '营业时间: 8:00-20:00',
-    notice: '这是一段公告!这是一段公告!',
-    phone: '028-82611957',
-    site: '成都市高新区天府四街银泰城3F',
-    intro: '隆江猪脚饭是用猪脚、饭制作的一道主食, 猪脚中含有丰富的胶原蛋白, 这是一种由生物大分子组成的胶类物资, 是构成肌腱结缔组织中最主要的蛋白质成分, 具有隆江猪脚饭是用猪脚',
+    shop_notice: '这是一段公告!这是一段公告!',
+    shop_phone: '028-82611957',
+    shop_address: '',
+    shop_introduce: '',
     intro_2: '',
-    list: [
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      },
-      {
-        img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-        title: '【隆江特色猪脚饭】隆江特色猪脚饭饭',
-        money: '19.00'
-      }
-    ]
+    list: [],
+    latitudes: 0,//维度
+    longitudes: 0 //经度
   },
   //轮播
   swiperChange: function(e) {
@@ -93,18 +49,21 @@ Page({
   //点击通话
   phonecallevent: function() {
     wx.makePhoneCall({
-      phoneNumber: this.data.phone
+      phoneNumber: this.data.shop_phone
     })
   },
   //位置详情
   siteclick: function() {
+    let latitudes = Number(this.data.latitudes) 
+    let longitudes = Number(this.data.longitudes)
+    console.log(latitudes, longitudes)
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
       success: function (res) {
         // success
         wx.openLocation({
-          latitude: 30.5418000000, // 纬度，范围为-90~90，负数表示南纬
-          longitude: 104.0580600000, // 经度，范围为-180~180，负数表示西经
+          latitude: latitudes, // 纬度，范围为-90~90，负数表示南纬
+          longitude: longitudes, // 经度，范围为-180~180，负数表示西经
           name: '隆江猪脚饭',
           address: '成都市高新区天府四街银泰城3F',
           scale: 28
@@ -114,8 +73,8 @@ Page({
   },
   //展开全部
   display: function (e) {
-    let cont = this.data.intro
-    if (cont.length > 76) {
+    let cont = this.data.shop_introduce
+    if (cont.length > 70) {
       var intro_slice = this.data.intro
     }
     this.setData({
@@ -125,22 +84,94 @@ Page({
   },
   //收起
   pack: function () {
-    let cont = this.data.intro
+    let cont = this.data.shop_introduce
     let cont_2 = this.data.intro_2
     cont_2 = cont
     console.log(cont_2)
     if (cont.length > 76) {
-      var intro_slice = cont.slice(0, 76) + '...'
+      var intro_slice = cont.slice(0, 70) + '...'
     }
     this.setData({
       intro_2: intro_slice,
       action: true
     })
   },
+  //全部
+  shopp: function() {
+    wx.switchTab({
+      url: '../goods/goods'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    let that = this
+    app.getToken(function(token){
+      //用户门店个人信息
+      wx.request({
+        url: app.constData.server + '/api/settings' + '?filters[user_id]=' + '2',
+        method: 'GET',
+        header: {
+          'authorization': 'Bearer ' + wx.getStorageSync('token')
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            shop_name: res.data.data[0].shop_name,
+            type: res.data.data[0].industry.name,
+            shop_notice: res.data.data[0].shop_notice,
+            shop_work_time: res.data.data[0].shop_work_time,
+            shop_phone: res.data.data[0].shop_phone,
+            shop_address: res.data.data[0].shop_address,
+            shop_introduce: res.data.data[0].shop_introduce,
+            latitudes: res.data.data[0].shop_latitude,
+            longitudes: res.data.data[0].shop_longitude
+          })
+        }
+      })
+      //用户某个商品分类所有商品
+      wx.request({
+        url: app.constData.server + '/api/products' + '?filters[user_id]=' + '2',
+        method: 'GET',
+        header: {
+          'authorization': 'Bearer ' + wx.getStorageSync('token')
+        },
+        success: function (res) {
+         // console.log(res.data)
+          let id = res.data.data[0].id
+          // console.log(id)
+          that.setData({
+            list: res.data.data
+          })
+          // wx.request({
+          //   url: app.constData.server + '/api/products' + '?filters[id]=' + '2',
+          //   method: 'GET',
+          //   header: {
+          //     'authorization': 'Bearer ' + wx.getStorageSync('token')
+          //   },
+          //   success: function (res) {
+          //     console.log(res.data)
+          //   }
+          // })
+        }
+      })
+      //轮播
+      wx.request({
+        url: app.constData.server + '/api/carousels',
+        method: 'GET',
+        header: {
+          'authorization': 'Bearer ' + wx.getStorageSync('token')
+        },
+        success: function (res) {
+          console.log(res.data)
+          that.setData({
+            //imgUrls: res.data.data
+          })
+        }
+      })
+    })
+
     //轮播总数
     let idx = this.data.imgUrls.length
     this.setData({
@@ -148,18 +179,29 @@ Page({
     })
 
     //全文
-    let cont = this.data.intro
+    let cont = this.data.shop_introduce
+    //console.log(cont)
     let cont_2 = this.data.intro_2
     cont_2 = cont
     if (cont.length > 76) {
-      var intro_slice = cont.slice(0, 76) + '...'
+      var intro_slice = cont.slice(0, 70) + '...'
     }
     this.setData({
       intro_2: intro_slice,
       action: true
     })    
-  },
 
+    wx.getSystemInfo({
+      success: function (res) {
+        var windowWidth = res.windowWidth
+        var windowHeight = res.windowHeight
+        that.setData({
+          imgheight: windowWidth * 355.0 / 750.0 ,
+          img2height: windowWidth * 288.0 / 338.0 
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

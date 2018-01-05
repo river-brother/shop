@@ -1,26 +1,25 @@
 <view class='details'>
-  <image class='main' src='{{img}}'></image>
+  <image class='main' src='{{main_img}}' style="height:{{zhu_H}}px;"></image>
 
   <view class='bigbox'>
     <view class='name'>
       <view><text>{{title}}</text></view>
-      <view><text>￥</text><text>{{money}}</text></view>
+      <view><text>￥</text><text>{{price}}</text></view>
     </view>
 
     <view class="size {{kind === null  ? 'hide' : 'show'}}" >
-      <!-- <view  class="{{kg === '' ? 'hide' : 'show'}}"><text>{{net}}:</text><text>{{kg}}</text></view>
-      <view class="{{day === '' ? 'hide' : 'show'}}"><text>{{expect}}:</text><text>{{day}}</text></view> -->
-      <block wx:for="{{kind}}" wx:key="">
-        <view class="{{item.price == null || item.price == '' ? 'hide' : 'show'}}"><text>{{item.nature}}</text><text>{{item.price}}</text></view>
-      </block>
+       <view  class="{{kg === '' ? 'hide' : 'show'}}"><text>{{net}}</text><text>{{weight}}</text></view>
+      <view class="{{day === '' ? 'hide' : 'show'}}"><text>{{expect}}</text><text>{{over}}</text></view> 
+        <!-- <view class="{{item.price == null || item.price == '' ? 'hide' : 'show'}}"><text>{{item.nature}}</text><text>{{item.weight}}</text></view> -->
+
     </view>
     
     <view class="referral">
       <text class="{{text === null ? 'hide' : 'show'}}">{{referral}}</text>
-      <view>{{text}}</view>
+      <view>{{desc}}</view>
       <view>
       <block wx:for="{{list}}" wx:key="" wx:if="{{index < 5}}">
-         <image class="{{item.img === null ? 'hide' : 'show'}}" src='{{item.img}}'></image>
+         <image src='{{item}}'></image>
       </block>
       </view>      
      

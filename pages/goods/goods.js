@@ -6,86 +6,59 @@ Page({
    * 页面的初始数据
    */
   data: {
-    curNav: 1,
-    curIndex: 0,
-    leftTabArray: [
-      {
-        id: 1,
-        mold: '抄手'
-      },
-      {
-        id: 2,
-        mold: '面条'
-      },
-      {
-        id: 3,
-        mold: '3'
-      },
-      {
-        id: 4,
-        mold: '4'
-      }
-    ],
+    cont2_Height: 0,
+    curNav: 0,  //商品ID
+    curIndex: 0, //index
+    typeName: '',
+    leftTabArray: [],
     rightTabArray: [
-      {
-        mold: '抄手',
-        rightShopp: [
-          {
-            img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-            title: '【隆江特色猪脚饭】隆江特色猪脚饭',
-            money: '19.00'
-          },
-          {
-            img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-            title: '【隆江特色猪脚饭】隆江特色',
-            money: '19.00'
-          },
-          {
-            img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-            title: '【隆江特色猪脚饭】隆江特色',
-            money: '19.00'
-          },
-          {
-            img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-            title: '【隆江特色猪脚饭】隆江特色',
-            money: '19.00'
-          },
-          {
-            img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-            title: '【隆江特色猪脚饭】隆江特色',
-            money: '19.00'
-          },
-          {
-            img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-            title: '【隆江特色猪脚饭】隆江特色',
-            money: '19.00'
-          }
-        ]
-      },
       // {
-      //   mold: '面条',
+      //   //type_name: '抄手',
       //   rightShopp: [
       //     {
-      //       img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      //       main_img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       //       title: '【隆江特色猪脚饭】隆江特色猪脚饭',
-      //       money: '19.00'
-      //     },
-      //     {
-      //       img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //       title: '【隆江特色猪脚饭】隆江特色',
-      //       money: '19.00'
+      //       price: '19.00'
       //     }
       //   ]
-      // }
-      
+      // },
     ]
   },
+  //左边分页请求右边数据
   switchRightTab: function (e) {
     let id = e.target.dataset.id,
+        that = this,
         index = parseInt(e.target.dataset.index);
+    //console.log(id)
     this.setData({
       curNav: id,
-      curIndex: index
+      curIndex: index,
+      typeName: e.target.dataset.name
+    })
+    console.log(this.data.leftTabArray[0].type_name)
+    let curNav = this.data.curNav
+    app.getToken(function(token){
+      wx.request({
+        url: app.constData.server + '/api/products' + '?filters[user_id]=2' + '&filters[type_id]=' + id,
+        method: 'GET',
+        header: {
+          'accept': 'application/json',
+          'authorization': 'Bearer ' + wx.getStorageSync('token')
+        },
+        success: function (res) {
+          //console.log(res.data) 
+          that.setData({
+            rightTabArray: res.data.data
+          })
+        }
+      })
+    })
+    
+  },
+  //搜索
+  search: function () {
+    wx.navigateTo({
+      url: '../search/search'
     })
   },
 
@@ -94,34 +67,50 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    let temArray = this.data.leftTabArray
-    temArray[0].selected = true
-    temArray[0].index = 0
-    for (var i = 1; i < temArray.length; i++) {
-      temArray[i].selected = false;
-      temArray[i].index = i;
-    }
-    that.setData({
-      leftTabArray: temArray
-    })
-    
-    console.log(app.globalData.access_token)
-    app.getToken(function(token){
+    let curNav = this.data.curNav
+    app.getToken(function (token) {
       wx.request({
-        url: app.constData.server + '/api/products',
+        url: app.constData.server + '/api/types' + '?filters[user_id]=' + '2',
         method: 'GET',
         header: {
+          'accept': 'application/json',
           'authorization': 'Bearer ' + wx.getStorageSync('token')
         },
         success: function (res) {
           console.log(res.data)
+          that.setData({
+            leftTabArray: res.data.data,
+            curNav: res.data.data[0].id,
+            typeName: res.data.data[0].type_name
+          })
+          wx.request({
+            url: app.constData.server + '/api/products' + '?filters[user_id]=' + '2' + '&filters[type_id]=' + res.data.data[0].id,
+            method: 'GET',
+            header: {
+              'accept': 'application/json',
+              'authorization': 'Bearer ' + wx.getStorageSync('token')
+            },
+            success: function (res) {
+            console.log(res.data)
+             that.setData({
+               rightTabArray: res.data.data
+             })
+            }
+          })
+
         }
       })
     })
+    wx.getSystemInfo({
+      success: function (res) {
+        var windowWidth = res.windowWidth
+        var windowHeight = res.windowHeight
+        that.setData({
+          cont2_Height: windowHeight
+        })
+      }
+    })
   },
-
-  
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -44,6 +44,9 @@ App({
                   break;
                 case 200:
                   wx.setStorageSync('token', success.data.data.access_token)
+                  setTimeout(function(){
+                    wx.removeStorageSync('token')
+                  }, (success.data.data.expires_in-5)*1000)
                   wx.authorize({
                     scope: 'scope.userInfo',
                     success: function () {
@@ -84,11 +87,11 @@ App({
 
   globalData: {
     userInfo: null,
-    access_token: null
+    access_token: null,
+    user_id: null
   },
   constData: {
     server: 'https://api.ffuture.cn'
   },
-
 
 })

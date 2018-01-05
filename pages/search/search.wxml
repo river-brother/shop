@@ -1,0 +1,26 @@
+
+<view class='sousuo'>
+  <view class='cont1'>
+    <view class='left'>
+      <image src='../img/suosou.png'></image>
+      <input type='text' placeholder='请输入商品名称' bindblur="bindblur" ></input>
+    </view>
+    <view class="btn" bindtap='sousuo'>搜索</view>
+  </view>
+</view>
+
+<scroll-view class='cont2' scroll-y style='height:{{cont2_Height}}px'>
+    <block  wx:for="{{rightTabArray}}"  wx:key="">
+      <view class='box'>        
+        <image src='{{item.main_img}}'></image>
+        <view class='rel'>
+          <text class='title'>{{item.title}}</text>
+          <view class='money'><text>￥</text><text>{{item.price}}</text></view>
+        </view>
+      </view>
+    </block>
+</scroll-view>
+
+<view class='logo'>
+  <image src='../img/logo.png'></image>
+</view>

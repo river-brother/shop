@@ -3,7 +3,7 @@
   <view class='sousuo'>
     <view>
       <image src='../img/suosou.png'></image>
-      <input type='text' placeholder='搜索'></input>
+      <input type='text' placeholder='搜索' bindtap='search'></input>
     </view>
   </view>
 
@@ -11,31 +11,25 @@
 
     <scroll-view class='left' scroll-y>
       <block wx:for="{{leftTabArray}}" wx:key=""> 
-        <view class="box {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-id="{{item.id}}" data-index='{{index}}' >
-          {{item.mold}}
+        <view class="box {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-name="{{item.type_name}}" data-id="{{item.id}}" data-index='{{index}}'>
+          {{item.type_name}}
         </view>
       </block>
     </scroll-view>
     
-
-    <scroll-view class='right' scroll-y>
+    <scroll-view class='right' scroll-y style='height:{{cont2_Height}}px'>
+     <text class='mold'>{{typeName}}</text>
       <block  wx:for="{{rightTabArray}}"  wx:key="">
         <view class='box'>
-          <text class='mold'>{{item.mold}}</text>
-          <block  wx:for="{{item.rightShopp}}"  wx:key="" wx:for-item="ite">
             <view class='row'>
-              <image src='{{ite.img}}'></image>
+              <image src='{{item.main_img}}'></image>
               <view class='rel'>
-                <text class='title'>{{ite.title}}</text>
-                <view class='money'><text>￥</text><text>{{ite.money}}</text></view>
+                <text class='title'>{{item.title}}</text>
+                <view class='money'><text>￥</text><text>{{item.price}}</text></view>
               </view>
             </view>
-          </block>
         </view>
       </block>
-      <view class='logo'>
-        <image src='../img/logo.png'></image>
-      </view> 
     </scroll-view>
 
   </view>

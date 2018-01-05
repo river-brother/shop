@@ -1,32 +1,30 @@
 {
   "pages": [
-    "pages/goods/goods",
     "pages/merchant/merchant",
+    "pages/goods/goods",
+    
+    "pages/search/search",   
     "pages/details/details"
     
-    
-    
-    
-    
-  ],
 
+  ],
   "tabBar": {
     "color": "#b1b1b1",
-    "selectedColor": "black",
+    "selectedColor": "#000000",
     "backgroundColor": "#ffffff",
     "borderStyle": "#f4f4f4",
     "list": [
       {
         "pagePath": "pages/merchant/merchant",
-        "text": "店铺",
         "iconPath": "pages/img/homepage@3x.png",
-        "selectedIconPath": "pages/img/homepage_fill@2x.png"
+        "selectedIconPath": "pages/img/homepage_fill@2x.png",
+        "text": "店铺"
       },
       {
         "pagePath": "pages/goods/goods",
-        "text": "商品",
         "iconPath": "pages/img/service@3x.png",
-        "selectedIconPath": "pages/img/service_fill@2x.png"
+        "selectedIconPath": "pages/img/service_fill@2x.png",
+        "text": "商品"
       }
     ]
   }
