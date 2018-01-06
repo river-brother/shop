@@ -1,5 +1,5 @@
-const app = getApp()
-
+let app = getApp()
+let request = require('../../lib/restful-request/request.js');
 Page({
 
   /**
@@ -56,7 +56,7 @@ Page({
   siteclick: function() {
     let latitudes = Number(this.data.latitudes) 
     let longitudes = Number(this.data.longitudes)
-    console.log(latitudes, longitudes)
+    // console.log(latitudes, longitudes)
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
       success: function (res) {
@@ -87,7 +87,7 @@ Page({
     let cont = this.data.shop_introduce
     let cont_2 = this.data.intro_2
     cont_2 = cont
-    console.log(cont_2)
+    // console.log(cont_2)
     if (cont.length > 76) {
       var intro_slice = cont.slice(0, 70) + '...'
     }
@@ -107,16 +107,11 @@ Page({
    */
   onLoad: function (e) {
     let that = this
-    app.getToken(function(token){
       //用户门店个人信息
-      wx.request({
+      request.get({
         url: app.constData.server + '/api/settings' + '?filters[user_id]=' + '2',
-        method: 'GET',
-        header: {
-          'authorization': 'Bearer ' + wx.getStorageSync('token')
-        },
         success: function (res) {
-          console.log(res)
+          // console.log(res)
           that.setData({
             shop_name: res.data.data[0].shop_name,
             type: res.data.data[0].industry.name,
@@ -131,12 +126,8 @@ Page({
         }
       })
       //用户某个商品分类所有商品
-      wx.request({
+      request.get({
         url: app.constData.server + '/api/products' + '?filters[user_id]=' + '2',
-        method: 'GET',
-        header: {
-          'authorization': 'Bearer ' + wx.getStorageSync('token')
-        },
         success: function (res) {
          // console.log(res.data)
           let id = res.data.data[0].id
@@ -157,20 +148,15 @@ Page({
         }
       })
       //轮播
-      wx.request({
+     request.get({
         url: app.constData.server + '/api/carousels',
-        method: 'GET',
-        header: {
-          'authorization': 'Bearer ' + wx.getStorageSync('token')
-        },
         success: function (res) {
-          console.log(res.data)
+          // console.log(res.data)
           that.setData({
             //imgUrls: res.data.data
           })
         }
       })
-    })
 
     //轮播总数
     let idx = this.data.imgUrls.length

@@ -63,7 +63,7 @@
     <view bindtap='shopp'><text>全部</text><image class='enter' src='../img/enter.png'></image></view>
     <view class='box'>
       <block wx:for="{{list}}" wx:key="" wx:if="{{index < 10}}">
-        <navigator url="../details/details?id={{item.id}}" class='list' bindtap="details">
+        <navigator url="../details/details?id={{item.id}}" class='list' catchtap="">
           <image style=" height:{{img2height}}rpx" src='{{item.main_img}}'></image>
           <view class='title'>{{item.title}}</view>
           <view class='money'><text>￥</text><text>{{item.price}}</text></view>

@@ -1,4 +1,5 @@
 const app = getApp()
+let request = require('../..//lib/restful-request/request.js');
 
 Page({
 
@@ -35,16 +36,10 @@ Page({
       curIndex: index,
       typeName: e.target.dataset.name
     })
-    console.log(this.data.leftTabArray[0].type_name)
+    // console.log(this.data.leftTabArray[0].type_name)
     let curNav = this.data.curNav
-    app.getToken(function(token){
-      wx.request({
+      request.get({
         url: app.constData.server + '/api/products' + '?filters[user_id]=2' + '&filters[type_id]=' + id,
-        method: 'GET',
-        header: {
-          'accept': 'application/json',
-          'authorization': 'Bearer ' + wx.getStorageSync('token')
-        },
         success: function (res) {
           //console.log(res.data) 
           that.setData({
@@ -52,8 +47,6 @@ Page({
           })
         }
       })
-    })
-    
   },
   //搜索
   search: function () {
@@ -62,44 +55,38 @@ Page({
     })
   },
 
+  details: function(e){
+    wx.navigateTo({
+      url: '../details/details?id=' + e.currentTarget.dataset.id
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let that = this
     let curNav = this.data.curNav
-    app.getToken(function (token) {
-      wx.request({
-        url: app.constData.server + '/api/types' + '?filters[user_id]=' + '2',
-        method: 'GET',
-        header: {
-          'accept': 'application/json',
-          'authorization': 'Bearer ' + wx.getStorageSync('token')
-        },
-        success: function (res) {
-          console.log(res.data)
-          that.setData({
-            leftTabArray: res.data.data,
-            curNav: res.data.data[0].id,
-            typeName: res.data.data[0].type_name
-          })
-          wx.request({
-            url: app.constData.server + '/api/products' + '?filters[user_id]=' + '2' + '&filters[type_id]=' + res.data.data[0].id,
-            method: 'GET',
-            header: {
-              'accept': 'application/json',
-              'authorization': 'Bearer ' + wx.getStorageSync('token')
-            },
-            success: function (res) {
-            console.log(res.data)
-             that.setData({
-               rightTabArray: res.data.data
-             })
-            }
-          })
+    request.get({
+      url: app.constData.server + '/api/types' + '?filters[user_id]=' + '2',
+      success: function (res) {
+        // console.log(res.data)
+        that.setData({
+          leftTabArray: res.data.data,
+          curNav: res.data.data[0].id,
+          typeName: res.data.data[0].type_name
+        })
+        request.get({
+          url: app.constData.server + '/api/products' + '?filters[user_id]=' + '2' + '&filters[type_id]=' + res.data.data[0].id,
+          success: function (res) {
+          // console.log(res.data)
+            that.setData({
+              rightTabArray: res.data.data
+            })
+          }
+        })
 
-        }
-      })
+      }
     })
     wx.getSystemInfo({
       success: function (res) {

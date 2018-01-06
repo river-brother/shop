@@ -24,65 +24,31 @@ App({
     // })
   },
 
-  getToken: function(callback){
-    if (wx.getStorageSync('token')){
-      callback(wx.getStorageSync('token'))
-    }else{
-      //登录
-      wx.login({
-        success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          request.post({
-            url: getApp().constData.server + "/api/users/miniprogram-login",
-            data: {
-              code: res.code
-            },
-            success: function (success) {
-              switch (success.statusCode) {
-                case 403:
-                  console.log('please register');
-                  break;
-                case 200:
-                  wx.setStorageSync('token', success.data.data.access_token)
-                  setTimeout(function(){
-                    wx.removeStorageSync('token')
-                  }, (success.data.data.expires_in-5)*1000)
-                  wx.authorize({
-                    scope: 'scope.userInfo',
-                    success: function () {
-                      wx.getUserInfo({
-                        success: function (res) {
-                          request.post({
-                            url: getApp().constData.server + '/api/users/sync',
-                            header: {
-                              'authorization': 'Bearer ' + wx.getStorageSync('token')
-                            },
-                            data: {
-                              iv: res.iv,
-                              encrypted_data: res.encryptedData
-                            },
-                            success: function (res) {
-                              switch (res.statusCode) {
-                                case 204:
-                                  callback(wx.getStorageSync('token'))
-                                  break;
-                                default:
-
-                                  break;
-                              }
-                            }
-                          })
-                        }
-                      })
-                    }
-                  })
-                  break;
+  syncUserInfo: function(){
+    wx.authorize({
+      scope: 'scope.userInfo',
+      success: function () {
+        wx.getUserInfo({
+          success: function (res) {
+            request.post({
+              url: getApp().constData.server + '/api/users/sync',
+              data: {
+                iv: res.iv,
+                encrypted_data: res.encryptedData
+              },
+              success: function (res) {
+                switch (res.statusCode) {
+                  case 204:
+                    break;
+                  default:
+                    break;
+                }
               }
-            }
-          })
-        }
-      })
-    }
+            })
+          }
+        })
+      }
+    })
   },
 
   globalData: {

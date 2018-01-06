@@ -34,7 +34,7 @@ Page({
   sousuo: function () {
     let that = this
     let text = this.data.text.value
-    console.log(text)
+    // console.log(text)
     app.getToken(function (token) {
       wx.request({
         url: app.constData.server + '/api/products' + '?filters[title]=' + text,
@@ -44,7 +44,7 @@ Page({
           'authorization': 'Bearer ' + wx.getStorageSync('token')
         },
         success: function (res) {
-          console.log(res.data.data)
+          // console.log(res.data.data)
           that.setData({
             rightTabArray: res.data.data
           })

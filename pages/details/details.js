@@ -1,4 +1,5 @@
 const app = getApp()
+let request = require('../..//lib/restful-request/request.js');
 
 Page({
 
@@ -34,39 +35,33 @@ Page({
       success: function (res) {
         var windowWidth = res.windowWidth
         var windowHeight = res.windowHeight
-        console.log(windowWidth, windowHeight)
+        // console.log(windowWidth, windowHeight)
         that.setData({
           zhu_H: windowWidth * 642.0 / 750.0,//高
         })
       }
     })
 
-    app.getToken(function (token) {
-      let arr = [];
-      wx.request({
-        url: app.constData.server + '/api/products/' + options.id,
-        method: 'GET',
-        header: {
-          'authorization': 'Bearer ' + wx.getStorageSync('token')
-        },
-        success: function (res) {
-          console.log(res)
-          that.setData({
-            main_img: res.data.data.main_img,
-            price: res.data.data.price,
-            title: res.data.data.title,
-            weight: res.data.data.weight,
-            over: res.data.data.over,
-            desc: res.data.data.desc,
-          })
-          for(var x in res.data.data.attachments){
-            arr.push(res.data.data.attachments[x].link)
-          }
-          that.setData({
-            list:arr
-          })
+    let arr = [];
+    request.get({
+      url: app.constData.server + '/api/products/' + options.id,
+      success: function (res) {
+        // console.log(res)
+        that.setData({
+          main_img: res.data.data.main_img,
+          price: res.data.data.price,
+          title: res.data.data.title,
+          weight: res.data.data.weight,
+          over: res.data.data.over,
+          desc: res.data.data.desc,
+        })
+        for(var x in res.data.data.attachments){
+          arr.push(res.data.data.attachments[x].link)
         }
-      })
+        that.setData({
+          list:arr
+        })
+      }
     })
   },
 
