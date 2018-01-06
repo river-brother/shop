@@ -1,5 +1,7 @@
 let app = getApp()
 let request = require('../../lib/restful-request/request.js');
+let extConfig = wx.getExtConfigSync();
+
 Page({
 
   /**
@@ -106,50 +108,50 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    let that = this
-      //用户门店个人信息
-      request.get({
-        url: app.constData.server + '/api/settings' + '?filters[user_id]=' + '2',
-        success: function (res) {
-          // console.log(res)
-          that.setData({
-            shop_name: res.data.data[0].shop_name,
-            type: res.data.data[0].industry.name,
-            shop_notice: res.data.data[0].shop_notice,
-            shop_work_time: res.data.data[0].shop_work_time,
-            shop_phone: res.data.data[0].shop_phone,
-            shop_address: res.data.data[0].shop_address,
-            shop_introduce: res.data.data[0].shop_introduce,
-            latitudes: res.data.data[0].shop_latitude,
-            longitudes: res.data.data[0].shop_longitude
-          })
-        }
-      })
-      //用户某个商品分类所有商品
-      request.get({
-        url: app.constData.server + '/api/products' + '?filters[user_id]=' + '2',
-        success: function (res) {
-         // console.log(res.data)
-          let id = res.data.data[0].id
-          // console.log(id)
-          that.setData({
-            list: res.data.data
-          })
-          // wx.request({
-          //   url: app.constData.server + '/api/products' + '?filters[id]=' + '2',
-          //   method: 'GET',
-          //   header: {
-          //     'authorization': 'Bearer ' + wx.getStorageSync('token')
-          //   },
-          //   success: function (res) {
-          //     console.log(res.data)
-          //   }
-          // })
-        }
-      })
+    let that = this;
+    //用户门店个人信息
+    request.get({
+      url: app.constData.server + '/api/settings' + '?filters[user_id]=' + extConfig.seller_id,
+      success: function (res) {
+        // console.log(res)
+        that.setData({
+          shop_name: res.data.data[0].shop_name,
+          type: res.data.data[0].industry.name,
+          shop_notice: res.data.data[0].shop_notice,
+          shop_work_time: res.data.data[0].shop_work_time,
+          shop_phone: res.data.data[0].shop_phone,
+          shop_address: res.data.data[0].shop_address,
+          shop_introduce: res.data.data[0].shop_introduce,
+          latitudes: res.data.data[0].shop_latitude,
+          longitudes: res.data.data[0].shop_longitude
+        })
+      }
+    })
+    //用户某个商品分类所有商品
+    request.get({
+      url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id,
+      success: function (res) {
+        // console.log(res.data)
+        let id = res.data.data[0].id
+        // console.log(id)
+        that.setData({
+          list: res.data.data
+        })
+        // wx.request({
+        //   url: app.constData.server + '/api/products' + '?filters[id]=' + '2',
+        //   method: 'GET',
+        //   header: {
+        //     'authorization': 'Bearer ' + wx.getStorageSync('token')
+        //   },
+        //   success: function (res) {
+        //     console.log(res.data)
+        //   }
+        // })
+      }
+    })
       //轮播
      request.get({
-        url: app.constData.server + '/api/carousels',
+        url: app.constData.server + '/api/carousels' + '?filters[user_id]=' + extConfig.seller_id,
         success: function (res) {
           // console.log(res.data)
           that.setData({

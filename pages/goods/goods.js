@@ -1,5 +1,6 @@
 const app = getApp()
 let request = require('../..//lib/restful-request/request.js');
+let extConfig = wx.getExtConfigSync();
 
 Page({
 
@@ -39,7 +40,7 @@ Page({
     // console.log(this.data.leftTabArray[0].type_name)
     let curNav = this.data.curNav
       request.get({
-        url: app.constData.server + '/api/products' + '?filters[user_id]=2' + '&filters[type_id]=' + id,
+        url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[type_id]=' + id,
         success: function (res) {
           //console.log(res.data) 
           that.setData({
@@ -68,7 +69,7 @@ Page({
     let that = this
     let curNav = this.data.curNav
     request.get({
-      url: app.constData.server + '/api/types' + '?filters[user_id]=' + '2',
+      url: app.constData.server + '/api/types' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
         // console.log(res.data)
         that.setData({
@@ -77,7 +78,7 @@ Page({
           typeName: res.data.data[0].type_name
         })
         request.get({
-          url: app.constData.server + '/api/products' + '?filters[user_id]=' + '2' + '&filters[type_id]=' + res.data.data[0].id,
+          url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[type_id]=' + res.data.data[0].id,
           success: function (res) {
           // console.log(res.data)
             that.setData({
