@@ -1,4 +1,4 @@
-<view class='merchant' style="weight:{{width}}px">
+<view class='merchant'>
 
   <swiper class='imgs' style="height:{{imgheight}}px;" indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="swiperCurrent" bindchange="swiperChange">
     <block wx:for="{{imgUrls}}" wx:key="">
@@ -6,8 +6,8 @@
         <image src="{{item}}" style="height:{{imgheight}}px;" class="slide-image"/>
       </swiper-item>
     </block>
-    <text>{{num}}/{{nums}}</text>
   </swiper>
+  <text class='dian'>{{num}}/{{nums}}</text>
 
   <view class='theme'>
     <view class='name'>

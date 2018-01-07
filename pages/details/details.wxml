@@ -8,8 +8,8 @@
     </view>
 
     <view class="size {{kind === null  ? 'hide' : 'show'}}" >
-       <view  class="{{kg === '' ? 'hide' : 'show'}}"><text>{{net}}</text><text>{{weight}}</text></view>
-      <view class="{{day === '' ? 'hide' : 'show'}}"><text>{{expect}}</text><text>{{over}}</text></view> 
+       <view  class="{{kg === '' ? 'hide' : 'show'}}"><text>{{net}}</text><text>{{weight}}G</text></view>
+      <view class="{{day === '' ? 'hide' : 'show'}}"><text>{{expect}}</text><text>{{over}}天</text></view> 
         <!-- <view class="{{item.price == null || item.price == '' ? 'hide' : 'show'}}"><text>{{item.nature}}</text><text>{{item.weight}}</text></view> -->
 
     </view>

@@ -118,5 +118,5 @@ page{
   color: #101010;
 }
 .logo{
- /* background: white; */
+  background: red;
 }

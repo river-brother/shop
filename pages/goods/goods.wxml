@@ -17,7 +17,7 @@
       </block>
     </scroll-view>
     
-    <scroll-view class='right' scroll-y style='height:{{cont2_Height}}px'>
+    <scroll-view class='right' scroll-y>
      <text class='mold'>{{typeName}}</text>
       <block  wx:for="{{rightTabArray}}"  wx:key="">
           <view class='box' bindtap="details" data-id="{{ item.id }}">
@@ -30,8 +30,11 @@
               </view>
           </view>
       </block>
+       <view class='logo'>
+          <image src='../img/logo.png'></image>
+      </view>
     </scroll-view>
-
+   
   </view>
 
 </view>

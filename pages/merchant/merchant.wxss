@@ -15,7 +15,7 @@
 .merchant .imgs image{
   width: 100%;
 }
-.merchant .imgs text{
+.merchant .dian{
   color: white;
   position: absolute;
   width: 90rpx;
