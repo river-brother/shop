@@ -18,7 +18,7 @@ Page({
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ],
     swiperCurrent: 1,
@@ -46,6 +46,13 @@ Page({
     let idx = e.detail.current + 1
     this.setData({
       num: idx
+    })
+  },
+  //图片预览
+  previewlmg: function(e) {
+    wx.previewImage({
+      current: 'url', // 当前显示图片的http链接
+      urls: this.data.imgUrls // 需要预览的图片http链接列表
     })
   },
   //点击通话
