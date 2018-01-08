@@ -1,36 +1,37 @@
-<view class='details'>
+<view class='details' style='min-height:{{details_height}}px'>
+
   <image class='main' src='{{main_img}}' style="height:{{zhu_H}}px;"></image>
 
   <view class='bigbox'>
-    <view class='name'>
-      <view><text>{{title}}</text></view>
-      <view><text>￥</text><text>{{price}}</text></view>
-    </view>
+    <view >
+      <view class='name'>
+        <view><text>{{title}}</text></view>
+        <view><text>￥</text><text>{{price}}</text></view>
+      </view>
 
-    <view class="size {{kind === null  ? 'hide' : 'show'}}" >
-       <view  class="{{kg === '' ? 'hide' : 'show'}}"><text>{{net}}</text><text>{{weight}}G</text></view>
-      <view class="{{day === '' ? 'hide' : 'show'}}"><text>{{expect}}</text><text>{{over}}天</text></view> 
-        <!-- <view class="{{item.price == null || item.price == '' ? 'hide' : 'show'}}"><text>{{item.nature}}</text><text>{{item.weight}}</text></view> -->
-
-    </view>
-    
-    <view class="referral">
-      <text class="{{text === null ? 'hide' : 'show'}}">{{referral}}</text>
-      <view>{{desc}}</view>
-      <view>
-      <block wx:for="{{list}}" wx:key="" wx:if="{{index < 5}}">
-         <image src='{{item}}'></image>
-      </block>
-      </view>      
-     
+      <view class="size {{kind === null  ? 'hide' : 'show'}}" >
+        <view  class="{{weight === '' ? 'hide' : 'show'}}"><text>{{net}}</text><text>{{weight}}</text></view>
+        <view class="{{over === '' ? 'hide' : 'show'}}"><text>{{expect}}</text><text>{{over}}</text></view> 
+      </view>
+      
+      <view class="referral {{desc === '' && list.length === 0 ? 'hide' : 'show'}}">
+        <text class="{{desc === null ? 'hide' : 'show'}}">{{referral}}</text>
+        <view>{{desc}}</view>
+        <view style='width:{{proWidth}}px'>
+          <block wx:for="{{list}}" wx:key="" wx:if="{{index < 5}}">
+            <image src='{{item}}' style='width:{{proWidth}}px;height:{{proHeight}}px'></image>
+          </block>
+        </view>      
+      </view>
     </view>
 
     <view class='logo'>
-      <image src='../img/logo.png'></image>
+      <image src='../img/logos.png'></image>
+      <text>农夫未来科技提供技术支持</text>
     </view>
-
   </view>
 
-  
 
 </view>
+
+

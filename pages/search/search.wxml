@@ -9,18 +9,22 @@
   </view>
 </view>
 
-<scroll-view class='cont2' scroll-y style='height:{{cont2_Height}}px'>
+<scroll-view class='cont2' scroll-y style='min-height:{{cont2_Height}}px' >
     <block  wx:for="{{rightTabArray}}"  wx:key="">
-      <view class='box'>        
-        <image src='{{item.main_img}}'></image>
-        <view class='rel'>
-          <text class='title'>{{item.title}}</text>
-          <view class='money'><text>￥</text><text>{{item.price}}</text></view>
+      <navigator url="../details/details?id={{item.id}}" class='list' catchtap="">
+        <view class='box'>        
+          <image src='{{item.main_img}}'></image>
+          <view class='rel'>
+            <text class='title'>{{item.title}}</text>
+            <view class='money'><text>￥</text><text>{{item.price}}</text></view>
+          </view>
         </view>
-      </view>
+      </navigator>
     </block>
+  
 </scroll-view>
 
 <view class='logo'>
-  <image src='../img/logo.png'></image>
+  <image src='../img/logos.png'></image>
+  <text>农夫未来科技提供技术支持</text>
 </view>

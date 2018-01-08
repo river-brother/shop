@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    heights: 0,
     width: 0,
     action: true,
     imgwidth: 0,
@@ -39,7 +40,7 @@ Page({
     intro_2: '',
     list: [],
     latitudes: 0,//维度
-    longitudes: 0 //经度
+    longitudes: 0, //经度
   },
   //轮播
   swiperChange: function(e) {
@@ -147,6 +148,7 @@ Page({
         })    
       }
     })
+
     //用户某个商品分类所有商品
     request.get({
       url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]= 1',
@@ -184,14 +186,18 @@ Page({
     this.setData({
       nums: idx   
     })
-
+    
+    //获取系统信息
     wx.getSystemInfo({
       success: function (res) {
         var windowWidth = res.windowWidth
         var windowHeight = res.windowHeight
+        console.log(windowWidth, windowHeight)
         that.setData({
-          imgheight: windowWidth * 355.0 / 750.0 ,
-          img2height: windowWidth * 288.0 / 338.0 
+          heights: windowHeight,
+          imgheight: windowWidth / 2 ,   //轮播高度
+          img2width: windowWidth / 2.2,  //商品展示宽度
+          img2height: windowWidth / 2.2 / 1.1    //商品展示高度
         })
       }
     })

@@ -1,12 +1,18 @@
 .logo{
   width: 100%;
-  height: 80rpx;
-  background: #fafafa;
+  height: 100rpx;
+  background: #fafafa;  
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .logo image{
-  width: 328rpx;
+  width: 37rpx;
   height: 25rpx;
+  padding-right: 5rpx;
+}
+.logo text{
+  font-size: 30rpx;
+  color: #cacaca;
+  letter-spacing: 2rpx;
 }

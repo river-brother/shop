@@ -37,13 +37,15 @@ page{
   margin-top: 100rpx;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 .goods .cont .left{
   width: 22%;
   height: 100%;
   background: #fafafa; 
-  position: fixed;  
   color: #9b9b9b;
+  position: fixed;
+  
 } 
 .goods .cont .left .box{
   height: 80rpx;
@@ -53,13 +55,19 @@ page{
   overflow: hidden;
   word-break:break-all;
 }
+ .goods .bigbox{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+} 
 .goods .cont .right{
   width: 78%;
   height: 100%; 
   background: white;
   overflow: hidden;
   margin-left: 22%;
-  position: fixed; 
+  position: relative;
 }
 .goods .cont .right .mold{
   display: flex;
@@ -76,15 +84,17 @@ page{
 }
 .goods .cont .right .box{
   margin-bottom: 40rpx;
+  border-bottom: 1px solid #f5f5f5;
 }
 .goods .cont .right .box:last-child{
-  margin-bottom: 130rpx;
+  margin-bottom: 0rpx;
 }
 .goods .cont .right .box image{
   width: 200rpx;
   height: 162rpx;
   border-radius: 5rpx;
   margin-right: 27rpx;
+  background: #ccc;
 }
 .goods .cont .right .box .title{
   font-size: 30rpx;

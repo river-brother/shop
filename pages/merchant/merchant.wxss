@@ -1,3 +1,6 @@
+page{
+  background: #fafafa;
+}
 .merchant{
   margin: 0;
   padding: 0;
@@ -11,6 +14,7 @@
   width: 100%;
   height: 355rpx;
   position: relative;
+  background: #cccccc;
 }
 .merchant .imgs image{
   width: 100%;
@@ -91,12 +95,13 @@
   letter-spacing: 2rpx;
 }
 .merchant .theme .notice{
+  width: 530rpx;
   font-size: 26rpx;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding-right: 78rpx;
   letter-spacing: 2rpx;
+  margin-bottom: 30rpx;
 }
 .merchant .theme .notice image{
   padding-right: 20rpx;
@@ -160,7 +165,7 @@
 }
 .merchant .intro> view:nth-child(1){
   width: 200rpx;
-  border: 1.5px solid black;
+  border: 0.5px solid #161616;
   background: black;
   margin: auto;
   margin-top: 40rpx;
@@ -199,11 +204,11 @@
 .merchant .shopp{
   position: relative;
   width: 100%;
-  border-bottom:20rpx solid #f5f5f5; 
+  border-bottom:10rpx solid #f5f5f5; 
 }
 .merchant .shopp> view:nth-child(1){
   width: 200rpx;
-  border:  1.5px solid black;
+  border:  0.5px solid #161616;
   background: black;
   margin: auto;
   margin-top: 40rpx;
@@ -248,6 +253,7 @@
 .merchant .shopp .list image{
   width: 335rpx;
   height: 288rpx;
+  background: #cccccc;
 }
 .merchant .shopp .list .title{
   width: 335rpx;
@@ -269,7 +275,7 @@
    100% { transform: translateX(0); } 
 } 
 .marquee{
-    width: 450rpx;
+    width: 100%;
     height: 25px;
     line-height: 25px;
     overflow: hidden;
@@ -279,8 +285,16 @@
     font-size: 26rpx;
 }
 .marquee .content{
-    display: inline-block;
-    position: relative;
-    padding-left: 20rpx;
-    animation: kf-marque-animation 5s linear 2s infinite normal; /*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
+  display: inline-block;
+  position: relative;
+  padding-left: 20rpx;
+  animation: kf-marque-animation 5s linear 2s infinite normal; /*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
+}
+
+
+.hide{
+  display: none;
+}
+.show{
+  display: block;
 }

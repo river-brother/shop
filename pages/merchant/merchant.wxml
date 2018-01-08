@@ -26,28 +26,28 @@
     </view>
   </view>
 
-   <view class='phone'>
+   <view class='phone' bindtap='phonecallevent'>
     <view>
       <image src='../img/phone.png'></image>
       <text>{{shop_phone}}</text>
     </view>
-    <view bindtap='phonecallevent'>
+    <view>
       <text>点击通话</text>
       <image class='enter' src='../img/enter.png'></image>
     </view>
   </view>
-  <view class='site'>
+  <view class='site' bindtap='siteclick'>
     <view>
       <image src='../img/dz.png'></image>
       <text>{{shop_address}}</text>
     </view>
-    <view bindtap='siteclick'>
+    <view>
       <text>查看地图</text>
       <image class='enter' src='../img/enter.png'></image>
     </view>
   </view>
 
-  <view class='intro'>
+  <view class="intro {{shop_introduce === '' ? 'hide':'show'}}">
     <view></view>
     <text>店铺简介</text>
     <view class='info'>
@@ -57,23 +57,24 @@
     </view>
   </view>
 
-  <view class='shopp'>
+  <view class="shopp {{list.length === 0 ? 'hide':'show'}}">
     <view></view>
     <text>商品展示</text>
     <view bindtap='shopp'><text>全部</text><image class='enter' src='../img/enter.png'></image></view>
     <view class='box'>
       <block wx:for="{{list}}" wx:key="" wx:if="{{index < 10}}">
         <navigator url="../details/details?id={{item.id}}" class='list' catchtap="">
-          <image style=" height:{{img2height}}rpx" src='{{item.main_img}}'></image>
-          <view class='title'>{{item.title}}</view>
+          <image style="width:{{img2width}}px; height:{{img2height}}px" src='{{item.main_img}}'></image>
+          <view class='title' style="width:{{img2width}}px">{{item.title}}</view>
           <view class='money'><text>￥</text><text>{{item.price}}</text></view>
         </navigator>
       </block>
     </view>
   </view> 
-
-  <view class='logo'>
-    <image src='../img/logo.png'></image>
-  </view>
   
+</view>
+
+ <view class='logo'>
+    <image src='../img/logos.png'></image>
+    <text>农夫未来科技提供技术支持</text>
 </view>

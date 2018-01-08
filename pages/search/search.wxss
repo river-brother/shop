@@ -51,39 +51,36 @@
 }
 
 .cont2{
+  width: 100%;
+  height: 100%;
   margin-top: 100rpx;
 }
 .cont2 .box{
   width: 100%;
-  height: 280rpx;
+  height: 220rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid #dddddd;
+  padding-left: 30rpx;
 }
 .cont2 .box image{
-  display: block;
-  width: 250rpx;
-  height: 210rpx;
-  padding-left: 25rpx;
-  padding-right: 30rpx;
+  width: 200rpx;
+  height: 180rpx;
+  background: #cccccc;
 }
 .cont2 .box .rel{
-  width: 100%;
-  height: 215rpx;
+  height: 180rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-left: 30rpx;
 }
 .cont2 .box .rel .title{
-  width: 90%;
+  width: 450rpx;
   font-size: 35rpx;
   display: block;
 }
 .cont2 .box .rel .money{
   color: #ff2341;
-}
-
-.logo{
-  
 }

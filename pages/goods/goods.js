@@ -24,7 +24,9 @@ Page({
       //     }
       //   ]
       // },
-    ]
+    ],
+    Tuwidth: 0,
+    Tuheight: 0
   },
   //左边分页请求右边数据
   switchRightTab: function (e) {
@@ -89,12 +91,17 @@ Page({
 
       }
     })
+
+    //获取系统信息
     wx.getSystemInfo({
       success: function (res) {
         var windowWidth = res.windowWidth
         var windowHeight = res.windowHeight
+        console.log(windowWidth, windowHeight)
         that.setData({
-          cont2_Height: windowHeight
+          cont2_Height: windowHeight,
+          Tuwidth: windowWidth / 3.8,
+          Tuheight: windowWidth / 3.8 / 1.2
         })
       }
     })

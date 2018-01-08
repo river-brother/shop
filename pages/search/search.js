@@ -1,5 +1,6 @@
-const app = getApp()
-let request = require('../..//lib/restful-request/request.js')
+let app = getApp()
+let request = require('../../lib/restful-request/request.js');
+let extConfig = wx.getExtConfigSync();
 Page({
 
   /**
@@ -69,10 +70,22 @@ Page({
     let that = this
     wx.getSystemInfo({
       success: function (res) {
-        var windowWidth = res.windowWidth
         var windowHeight = res.windowHeight
         that.setData({
           cont2_Height: windowHeight
+        })
+      }
+    })
+
+    //用户某个商品分类所有商品
+    request.get({
+      url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]= 1',
+      success: function (res) {
+        //console.log(res.data.data)
+        let id = res.data.data[0].id
+        // console.log(id)
+        that.setData({
+          list: res.data.data
         })
       }
     })

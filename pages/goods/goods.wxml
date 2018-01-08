@@ -17,21 +17,27 @@
       </block>
     </scroll-view>
     
-    <scroll-view class='right' scroll-y style='height:{{cont2_Height}}px'>
-     <text class='mold'>{{typeName}}</text>
-      <block  wx:for="{{rightTabArray}}"  wx:key="">
-          <view class='box' bindtap="details" data-id="{{ item.id }}">
-              <view class='row'>
-                <image src='{{item.main_img}}'></image>
-                <view class='rel'>
-                  <text class='title'>{{item.title}}</text>
-                  <view class='money'><text>￥</text><text>{{item.price}}</text></view>
+    <scroll-view class='right' scroll-y >
+    
+      <view class='bigbox' style='min-height:{{cont2_Height}}px'>
+        <text class='mold'>{{typeName}}</text>
+        <block  wx:for="{{rightTabArray}}"  wx:key="">
+            <view class='box' bindtap="details" data-id="{{ item.id }}">
+                <view class='row'>
+                  <image style='width:{{Tuwidth}}px;height:{{Tuheight}}px' src='{{item.main_img}}'></image>
+                  <view class='rel' style='height:{{Tuheight}}px'>
+                    <text class='title'>{{item.title}}</text>
+                    <view class='money'><text>￥</text><text>{{item.price}}</text></view>
+                  </view>
                 </view>
-              </view>
-          </view>
-      </block>
-    </scroll-view>
+            </view>
+        </block>
+      </view>
 
+      <view class='logo'>
+         <image src='../img/logos.png'></image>
+         <text>农夫未来科技提供技术支持</text>
+      </view>
+    </scroll-view> 
   </view>
-
 </view>
