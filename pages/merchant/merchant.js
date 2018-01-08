@@ -84,7 +84,7 @@ Page({
   display: function (e) {
     let cont = this.data.shop_introduce
     if (cont.length > 70) {
-      var intro_slice = this.data.intro
+      var intro_slice = cont
     }
     this.setData({
       intro_2: intro_slice,
@@ -97,8 +97,8 @@ Page({
     let cont_2 = this.data.intro_2
     cont_2 = cont
     // console.log(cont_2)
-    if (cont.length > 76) {
-      var intro_slice = cont.slice(0, 70) + '...'
+    if (cont.length > 70) {
+      var intro_slice = cont_2.slice(0, 70) + '...'
     }
     this.setData({
       intro_2: intro_slice,
@@ -132,6 +132,19 @@ Page({
           latitudes: res.data.data[0].shop_latitude,
           longitudes: res.data.data[0].shop_longitude
         })
+        //全文
+        let cont = that.data.shop_introduce
+        //console.log(cont)
+        let cont_2 = that.data.intro_2
+        //cont_2 = cont
+        console.log(cont_2)
+        if (cont.length > 76) {
+          var intro_slice = cont.slice(0, 70) + '...'
+        }
+        that.setData({
+          intro_2: intro_slice,
+          action: true
+        })    
       }
     })
     //用户某个商品分类所有商品
@@ -144,25 +157,23 @@ Page({
         that.setData({
           list: res.data.data
         })
-        // wx.request({
-        //   url: app.constData.server + '/api/products' + '?filters[id]=' + '2',
-        //   method: 'GET',
-        //   header: {
-        //     'authorization': 'Bearer ' + wx.getStorageSync('token')
-        //   },
-        //   success: function (res) {
-        //     console.log(res.data)
-        //   }
-        // })
       }
     })
       //轮播
+     let arr = []
      request.get({
         url: app.constData.server + '/api/carousels' + '?filters[user_id]=' + extConfig.seller_id,
         success: function (res) {
-          // console.log(res.data)
+          //console.log(res.data.data)
+          // that.setData({
+          //   imgUrls: res.data.data
+          // })
+          for (let x in res.data.data) {
+            arr.push(res.data.data[0].attachment.link)
+          }
+          //console.log(arr)
           that.setData({
-            //imgUrls: res.data.data
+            imgUrls: arr
           })
         }
       })
@@ -172,19 +183,6 @@ Page({
     this.setData({
       nums: idx   
     })
-
-    //全文
-    let cont = this.data.shop_introduce
-    //console.log(cont)
-    let cont_2 = this.data.intro_2
-    cont_2 = cont
-    if (cont.length > 76) {
-      var intro_slice = cont.slice(0, 70) + '...'
-    }
-    this.setData({
-      intro_2: intro_slice,
-      action: true
-    })    
 
     wx.getSystemInfo({
       success: function (res) {

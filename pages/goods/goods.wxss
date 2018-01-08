@@ -117,6 +117,3 @@ page{
   background: white;
   color: #101010;
 }
-.logo{
-  background: red;
-}

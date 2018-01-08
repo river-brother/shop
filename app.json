@@ -2,7 +2,8 @@
   "pages": [
     "pages/merchant/merchant",
     "pages/goods/goods",
-    "pages/search/search",   
+    "pages/search/search",
+    
     "pages/details/details"
     
 

@@ -51,9 +51,9 @@
     <view></view>
     <text>店铺简介</text>
     <view class='info'>
-      <text>{{intro_2 ? intro_2 : shop_introduce}}</text>
-      <text class="full" bindtap='display' wx:if="{{action === true && intro.length > 70 }}">{{intro_2.length > 70 ? '展开全部' : ''}}</text>
-      <text class="full" bindtap='pack' wx:else>{{intro_2.length < 70 ?  '' : '收起'}}</text>
+      <text data-text="{{shop_introduce}}">{{intro_2  ? intro_2 : shop_introduce}}</text>
+      <text class="full" bindtap='display' wx:if="{{action === true || intro.length > 70 }}">{{intro_2.length > 70 ? '展开全部' : ''}}</text>
+      <text class="full" bindtap='pack' wx:else>{{intro_2.length > 70 ?  '收起' : ''}}</text>
     </view>
   </view>
 

@@ -1,4 +1,5 @@
 const app = getApp()
+let request = require('../..//lib/restful-request/request.js')
 Page({
 
   /**
@@ -35,21 +36,30 @@ Page({
     let that = this
     let text = this.data.text.value
     // console.log(text)
-    app.getToken(function (token) {
-      wx.request({
+    // app.getToken(function (token) {
+    request.get({
         url: app.constData.server + '/api/products' + '?filters[title]=' + text,
-        method: 'GET',
-        header: {
-          'accept': 'application/json',
-          'authorization': 'Bearer ' + wx.getStorageSync('token')
-        },
         success: function (res) {
-          // console.log(res.data.data)
+          console.log(res.data.data)
           that.setData({
             rightTabArray: res.data.data
           })
         }
       })
+    // })
+  },
+  //点击完成
+  bindconfirm: function() {
+    let that = this
+    let text = this.data.text.value
+    request.get({
+      url: app.constData.server + '/api/products' + '?filters[title]=' + text,
+      success: function (res) {
+        console.log(res.data.data)
+        that.setData({
+          rightTabArray: res.data.data
+        })
+      }
     })
   },
   /**
