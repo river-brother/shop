@@ -136,10 +136,10 @@ Page({
         let cont = that.data.shop_introduce
         //console.log(cont)
         let cont_2 = that.data.intro_2
-        //cont_2 = cont
-        console.log(cont_2)
-        if (cont.length > 76) {
-          var intro_slice = cont.slice(0, 70) + '...'
+        cont_2 = cont
+        //console.log(cont_2)
+        if (cont_2.length > 76) {
+          var intro_slice = cont_2.slice(0, 70) + '...'
         }
         that.setData({
           intro_2: intro_slice,
@@ -149,9 +149,9 @@ Page({
     })
     //用户某个商品分类所有商品
     request.get({
-      url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id,
+      url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]= 1',
       success: function (res) {
-        // console.log(res.data)
+        //console.log(res.data.data)
         let id = res.data.data[0].id
         // console.log(id)
         that.setData({
@@ -159,24 +159,25 @@ Page({
         })
       }
     })
-      //轮播
-     let arr = []
-     request.get({
-        url: app.constData.server + '/api/carousels' + '?filters[user_id]=' + extConfig.seller_id,
-        success: function (res) {
-          //console.log(res.data.data)
-          // that.setData({
-          //   imgUrls: res.data.data
-          // })
-          for (let x in res.data.data) {
-            arr.push(res.data.data[0].attachment.link)
-          }
-          //console.log(arr)
-          that.setData({
-            imgUrls: arr
-          })
+    
+    //轮播
+    let arr = []
+    request.get({
+      url: app.constData.server + '/api/carousels' + '?filters[user_id]=' + extConfig.seller_id,
+      success: function (res) {
+        //console.log(res.data.data)
+        // that.setData({
+        //   imgUrls: res.data.data
+        // })
+        for (let x in res.data.data) {
+          arr.push(res.data.data[0].attachment.link)
         }
-      })
+        //console.log(arr)
+        that.setData({
+          imgUrls: arr
+        })
+      }
+    })
 
     //轮播总数
     let idx = this.data.imgUrls.length
