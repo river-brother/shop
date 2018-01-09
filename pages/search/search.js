@@ -25,7 +25,7 @@ Page({
     request.get({
         url: app.constData.server + '/api/products' + '?filters[title]=' + text,
         success: function (res) {
-          console.log(res.data.data)
+          //console.log(res.data.data)
           that.setData({
             rightTabArray: res.data.data
           })

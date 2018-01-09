@@ -154,7 +154,7 @@ Page({
       success: function (res) {
         //console.log(res.data.data)
         let id = res.data.data[0].id
-        console.log(id)
+        //console.log(id)
         that.setData({
           list: res.data.data
         })
