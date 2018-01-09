@@ -19,13 +19,13 @@ page{
   height: 55rpx;
   border-radius: 30rpx;
   display: flex;
- justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
   font-size: 26rpx; 
 }
 .sousuo .cont1 .left{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
@@ -37,7 +37,6 @@ page{
 }
 .sousuo .cont1 input{
   color: #949494; 
-  width: 100%;
 }
 
 .sousuo .cont1 .btn{

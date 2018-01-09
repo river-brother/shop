@@ -2,7 +2,7 @@
 
   <image class='main' src='{{main_img}}' style="height:{{zhu_H}}px;"></image>
   <view class='bigbox'>
-    <view class='box'>
+    <view class='box' style='min-height:{{heights}}px'>
       <view class='name'>
         <view><text>{{title}}</text></view>
         <view><text>￥</text><text>{{price}}</text></view>
@@ -24,7 +24,7 @@
       </view>
     </view>
 
-     <view class="logo">
+    <view class="logo">
       <image src='../img/logos.png'></image>
       <text>农夫未来科技提供技术支持</text>
     </view> 

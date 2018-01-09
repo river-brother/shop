@@ -56,9 +56,10 @@ page{
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   line-height: 20rpx;
+  white-space:nowrap;
 }
 .details .bigbox .size view text:nth-child(2){
-  color: #949494;
+  color: #949494;  
 }
 .details .bigbox .referral{
   margin-left: 25rpx;

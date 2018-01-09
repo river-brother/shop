@@ -1,9 +1,9 @@
 <view class='goods'>
 
   <view class='sousuo'>
-    <view>
+    <view bindtap='search'>
       <image src='../img/suosou.png'></image>
-      <input type='text' placeholder='搜索' bindtap='search' disabled></input>
+      <input type='text' placeholder='搜索' disabled></input>
     </view>
   </view>
 
@@ -23,12 +23,10 @@
         <text class='mold'>{{typeName}}</text>
         <block  wx:for="{{rightTabArray}}"  wx:key="">
             <view class='box' bindtap="details" data-id="{{ item.id }}">
-                <view class='row'>
-                  <image style='width:{{Tuwidth}}px;height:{{Tuheight}}px' src='{{item.main_img}}'></image>
-                  <view class='rel' style='height:{{Tuheight}}px'>
-                    <text class='title'>{{item.title}}</text>
-                    <view class='money'><text>￥</text><text>{{item.price}}</text></view>
-                  </view>
+                <image style='width:{{Tuwidth}}px;height:{{Tuheight}}px' src='{{item.main_img}}'></image>
+                <view class='rel' style='height:{{Tuheight}}px'>
+                  <text class='title'>{{item.title}}</text>
+                  <view class='money'><text>￥</text><text>{{item.price}}</text></view>
                 </view>
             </view>
         </block>
