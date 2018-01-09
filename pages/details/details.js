@@ -9,9 +9,9 @@ Page({
   data: {
     zhu_W: 0,
     zhu_H: 0,
-    main_img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-    title: '【老麻龙抄手】特色海味大抄手',
-    price: '19.00',
+    main_img: '',
+    title: '',
+    price: '',
     net: '净含量:',
     weight: '',
     expect: '保质期:',
@@ -22,13 +22,15 @@ Page({
     proWidth: 0,
     proHeight: 0,
     logoheight: 0,
-    details_height: 0
+    details_height: 0,
+    heights: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(this.data.a)
     let that = this
     //图片的宽高
     wx.getSystemInfo({
@@ -41,7 +43,8 @@ Page({
           proWidth: windowWidth / 1.2,
           proHeight: windowWidth / 1.2 / 2,
           logoheight: windowHeight,
-          details_height: windowHeight
+          details_height: windowHeight - 150,
+          heights: windowHeight - windowHeight / 750 *(windowWidth / 1.7)
         })
       }
     })
@@ -67,54 +70,5 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
   }
 })

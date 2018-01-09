@@ -13,8 +13,8 @@
     <block  wx:for="{{rightTabArray}}"  wx:key="">
       <navigator url="../details/details?id={{item.id}}" class='list' catchtap="">
         <view class='box'>        
-          <image src='{{item.main_img}}'></image>
-          <view class='rel'>
+          <image src='{{item.main_img}}' style='height:{{srcH}}px;width:{{srcW}}px'></image>
+          <view class='rel' style='height:{{srcH}}px'>
             <text class='title'>{{item.title}}</text>
             <view class='money'><text>￥</text><text>{{item.price}}</text></view>
           </view>

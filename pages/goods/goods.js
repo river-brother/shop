@@ -13,21 +13,11 @@ Page({
     curIndex: 0, //index
     typeName: '',
     leftTabArray: [],
-    rightTabArray: [
-      // {
-      //   //type_name: '抄手',
-      //   rightShopp: [
-      //     {
-      //       main_img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      //       title: '【隆江特色猪脚饭】隆江特色猪脚饭',
-      //       price: '19.00'
-      //     }
-      //   ]
-      // },
-    ],
+    rightTabArray: [],
     Tuwidth: 0,
     Tuheight: 0
   },
+
   //左边分页请求右边数据
   switchRightTab: function (e) {
     let id = e.target.dataset.id,
@@ -51,6 +41,7 @@ Page({
         }
       })
   },
+  
   //搜索
   search: function () {
     wx.navigateTo({
@@ -97,7 +88,7 @@ Page({
       success: function (res) {
         var windowWidth = res.windowWidth
         var windowHeight = res.windowHeight
-        console.log(windowWidth, windowHeight)
+        //console.log(windowWidth, windowHeight)
         that.setData({
           cont2_Height: windowHeight,
           Tuwidth: windowWidth / 3.8,
@@ -106,52 +97,4 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
 })

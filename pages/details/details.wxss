@@ -18,9 +18,8 @@ page{
   border-radius: 10rpx;
   background: white;
   position: absolute;
-  box-shadow: 0px 20rpx 10px #f4f4f4;
+  /* box-shadow: 0px 20rpx 10px #f4f4f4; */
   top: 350rpx;
-  /* margin-bottom: 25rpx; */
 }
 .details .bigbox .name{
   display: flex;
@@ -75,6 +74,7 @@ page{
   font-size: 26rpx;
   line-height: 38rpx;
   letter-spacing: 2rpx;
+  margin-bottom: 10rpx;
 }
 
 .details .bigbox .referral image{
@@ -92,6 +92,3 @@ page{
 .details .hide{
   display: none;
 } 
-.logo{
-  /* margin-top: 1350rpx; */
-}

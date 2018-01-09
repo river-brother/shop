@@ -45,15 +45,15 @@ page{
   background: #fafafa; 
   color: #9b9b9b;
   position: fixed;
-  
+  text-align: center;
+  display:inline-block;
 } 
 .goods .cont .left .box{
   height: 80rpx;
   font-size: 26rpx;
-  text-align: center;
-  line-height: 80rpx;
-  overflow: hidden;
-  word-break:break-all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
  .goods .bigbox{
   width: 100%;

@@ -288,10 +288,8 @@ page{
   display: inline-block;
   position: relative;
   padding-left: 20rpx;
-  animation: kf-marque-animation 5s linear 2s infinite normal; /*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
+  animation: kf-marque-animation 10s linear 2s infinite normal; /*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
 }
-
-
 .hide{
   display: none;
 }

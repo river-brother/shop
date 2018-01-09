@@ -15,13 +15,7 @@ Page({
     imgheight: 0,
     img2width: 0,
     img2height: 0,
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+    imgUrls: [],
     swiperCurrent: 1,
     indicatorDots: false,
     autoplay: true,
@@ -30,11 +24,10 @@ Page({
     num: 1,
     nums: 0,
     shop_name: '',
-    //else: '其他分店',
-    type: '美食快餐',
-    time: '营业时间: 8:00-20:00',
-    shop_notice: '这是一段公告!这是一段公告!',
-    shop_phone: '028-82611957',
+    type: '',
+    time: '',
+    shop_notice: '',
+    shop_phone: '',
     shop_address: '',
     shop_introduce: '',
     intro_2: '',
@@ -192,7 +185,7 @@ Page({
       success: function (res) {
         var windowWidth = res.windowWidth
         var windowHeight = res.windowHeight
-        console.log(windowWidth, windowHeight)
+        //console.log(windowWidth, windowHeight)
         that.setData({
           heights: windowHeight,
           imgheight: windowWidth / 2 ,   //轮播高度
@@ -201,53 +194,5 @@ Page({
         })
       }
     })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
   }
 })
