@@ -154,7 +154,7 @@ Page({
       success: function (res) {
         //console.log(res.data.data)
         let id = res.data.data[0].id
-        // console.log(id)
+        console.log(id)
         that.setData({
           list: res.data.data
         })
@@ -188,7 +188,7 @@ Page({
         var windowHeight = res.windowHeight
         //console.log(windowWidth, windowHeight)
         that.setData({
-          heights: windowHeight,
+          heights: windowHeight - windowWidth / 2,
           imgheight: windowWidth / 2 ,   //轮播高度
           img2width: windowWidth / 2.2,  //商品展示宽度
           img2height: windowWidth / 2.2 / 1.1    //商品展示高度

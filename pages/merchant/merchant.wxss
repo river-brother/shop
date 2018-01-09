@@ -9,6 +9,7 @@ page{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: white;
 }
 .merchant .imgs{
   width: 100%;
@@ -109,7 +110,7 @@ page{
 .merchant .phone{
   width: 100%;
   height: 90rpx;
-  margin-top: 325rpx;
+  margin-top: 280rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -168,14 +169,14 @@ page{
   border: 0.5px solid #161616;
   background: black;
   margin: auto;
-  margin-top: 40rpx;
+  margin-top: 45rpx;
   margin-bottom: 50rpx;
 } 
 .merchant .intro> text:nth-child(2){
   display: block;
   font-size: 30rpx;
   position: absolute;
-   top: 18rpx;
+  top: -23rpx;
   left: 305rpx; 
   width: 145rpx;
   height: 50rpx;
@@ -211,14 +212,14 @@ page{
   border:  0.5px solid #161616;
   background: black;
   margin: auto;
-  margin-top: 40rpx;
+  margin-top: 45rpx;
   margin-bottom: 50rpx;
 } 
 .merchant .shopp> text:nth-child(2){
   display: block;
   font-size: 30rpx;
   position: absolute;
-   top: 18rpx;
+  top: -23rpx;
   left: 305rpx; 
   width: 145rpx;
   height: 50rpx;
@@ -231,7 +232,7 @@ page{
   font-size: 26rpx;
   color: #949494;
   position: absolute;
-  top: 25rpx;
+  top: -15rpx;
   right: 20rpx;
   display: flex;
   align-items: center;
@@ -295,4 +296,8 @@ page{
 }
 .show{
   display: block;
+}
+
+.gaine{
+  width: 100%;
 }
