@@ -57,7 +57,7 @@
     </view>
   </view>
 
-  <view class="shopp {{list.length === 0 ? 'hide':'show'}}">
+  <view class="shopp {{list.length === 0 ? 'hide':''}}">
     <view></view>
     <text>商品展示</text>
     <view bindtap='shopp'><text>全部</text><image class='enter' src='../img/enter.png'></image></view>

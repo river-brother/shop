@@ -160,7 +160,7 @@ Page({
     request.get({
       url: app.constData.server + '/api/carousels' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
-        //console.log(res.data.data)
+        //console.log(res.data.data.length)
         // that.setData({
         //   imgUrls: res.data.data
         // })
@@ -169,17 +169,12 @@ Page({
         }
         //console.log(arr)
         that.setData({
-          imgUrls: arr
+          imgUrls: arr,
+          nums: res.data.data.length
         })
       }
     })
-
-    //轮播总数
-    let idx = this.data.imgUrls.length
-    this.setData({
-      nums: idx   
-    })
-    
+   
     //获取系统信息
     wx.getSystemInfo({
       success: function (res) {
