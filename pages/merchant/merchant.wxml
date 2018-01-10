@@ -3,7 +3,7 @@
   <swiper class='imgs' style="height:{{imgheight}}px;" indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="swiperCurrent" bindchange="swiperChange">
     <block wx:for="{{imgUrls}}" wx:key="">
       <swiper-item>
-        <image src="{{item}}" style="height:{{imgheight}}px;" class="slide-image" data-src="{{image}}" bindtap='previewlmg'/>
+        <image src="{{item}}" style="height:{{imgheight}}px;" class="slide-image" data-src="{{image}}" bindtap='previewlmg' data-index="{{index}}"/>
       </swiper-item>
     </block>
   </swiper>

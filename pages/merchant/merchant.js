@@ -29,7 +29,7 @@ Page({
     latitudes: 0,//维度
     longitudes: 0, //经度
     addressName: '', //地图店名
-    address: ''   //地图地址
+    address: '',   //地图地址
   },
 
   //轮播
@@ -42,8 +42,12 @@ Page({
 
   //图片预览
   previewlmg: function(e) {
+    //获取当前图片的下表
+    let index = e.currentTarget.dataset.index
+    //数据源
+    let pictures = this.data.imgUrls
     wx.previewImage({
-      current: 'url', // 当前显示图片的http链接
+      current: pictures[index], // 当前显示图片的http链接
       urls: this.data.imgUrls // 需要预览的图片http链接列表
     })
   },
@@ -170,7 +174,7 @@ Page({
         for (let x in res.data.data) {
           arr.push(res.data.data[0].attachment.link)
         }
-        //console.log(arr)
+        // console.log(arr)
         that.setData({
           imgUrls: arr,
           nums: res.data.data.length
