@@ -1,29 +1,22 @@
 const app = getApp()
-let request = require('../..//lib/restful-request/request.js');
+let request = require('../..//lib/restful-request/request.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    zhu_W: 0,
-    zhu_H: 0,
-    main_img: '',
-    title: '',
-    price: '',
+    zhu_H: 0, //主图高
+    main_img: '', //主图
+    title: '',  //商品名
+    price: '',  //商品价格
     net: '净含量:',
-    weight: '',
+    weight: '', //G
     expect: '保质期:',
-    over: '',
+    over: '',   //天
     referral: '产品介绍:',
-    desc: '',
-    list: [],
-    proWidth: 0,
-    proHeight: 0,
-    logoheight: 0,
-    details_height: 0,
-    heights: 0
+    desc: '', //介绍
+    list: [], //产品图片
+    proWidth: 0,  //产品图片宽
+    proHeight: 0, //产品图片高 
+    heights: 0  //内容高
   },
 
   /**
@@ -41,14 +34,13 @@ Page({
           zhu_H: windowWidth / 1.7,//高
           proWidth: windowWidth / 1.2,
           proHeight: windowWidth / 1.2 / 2,
-          logoheight: windowHeight,
-          details_height: windowHeight - 150,
           heights: windowHeight - windowHeight / 750 *(windowWidth / 1.7)
         })
       }
     })
 
-    let arr = [];
+    //页面数据
+    let arr = []
     request.get({
       url: app.constData.server + '/api/products/' + options.id,
       success: function (res) {

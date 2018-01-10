@@ -1,42 +1,37 @@
 let app = getApp()
-let request = require('../../lib/restful-request/request.js');
-let extConfig = wx.getExtConfigSync();
+let request = require('../../lib/restful-request/request.js')
+let extConfig = wx.getExtConfigSync()
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    heights: 0,
-    width: 0,
-    action: true,
-    imgwidth: 0,
-    imgheight: 0,
-    img2width: 0,
-    img2height: 0,
-    imgUrls: [],
-    swiperCurrent: 1,
+    heights: 0,  //电话以下的内容高度
+    action: true,  //省略与收起判断
+    img2width: 0,  //商品展示图片宽
+    img2height: 0, //商品展示图片高
+    imgUrls: [],   //轮播图片
+    imgheight: 0,  //轮播图片高
+    swiperCurrent: 1, 
     indicatorDots: false,
     autoplay: true,
     interval: 3000,
     duration: 1000,
-    num: 1,
-    nums: 0,
-    shop_name: '',
-    type: '',
-    time: '',
-    shop_notice: '',
-    shop_phone: '',
-    shop_address: '',
-    shop_introduce: '',
-    intro_2: '',
-    list: [],
+    num: 1,  //分子
+    nums: 0, //分母
+    shop_name: '', //点名
+    type: '', //店主题
+    time: '', //营业时间
+    shop_notice: '', //公告
+    shop_phone: '', //电话
+    shop_address: '', //地址
+    shop_introduce: '', //简介
+    intro_2: '', //简介副本
+    list: [], //商品
     latitudes: 0,//维度
     longitudes: 0, //经度
-    addressName: '',
-    address: ''
+    addressName: '', //地图店名
+    address: ''   //地图地址
   },
+
   //轮播
   swiperChange: function(e) {
     let idx = e.detail.current + 1
@@ -44,6 +39,7 @@ Page({
       num: idx
     })
   },
+
   //图片预览
   previewlmg: function(e) {
     wx.previewImage({
@@ -51,12 +47,14 @@ Page({
       urls: this.data.imgUrls // 需要预览的图片http链接列表
     })
   },
+
   //点击通话
   phonecallevent: function() {
     wx.makePhoneCall({
       phoneNumber: this.data.shop_phone
     })
   },
+
   //位置详情
   siteclick: function() {
     let latitudes = Number(this.data.latitudes), 
@@ -67,7 +65,6 @@ Page({
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
       success: function (res) {
-        // success
         wx.openLocation({
           latitude: latitudes, // 纬度，范围为-90~90，负数表示南纬
           longitude: longitudes, // 经度，范围为-180~180，负数表示西经
@@ -78,6 +75,7 @@ Page({
       }
     })
   },
+
   //展开全部
   display: function (e) {
     let cont = this.data.shop_introduce
@@ -89,6 +87,7 @@ Page({
       action: false
     })
   },
+
   //收起
   pack: function () {
     let cont = this.data.shop_introduce
@@ -103,12 +102,14 @@ Page({
       action: true
     })
   },
+
   //全部
   shopp: function() {
     wx.switchTab({
       url: '../goods/goods'
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -132,7 +133,7 @@ Page({
           addressName: res.data.data[0].shop_name,
           address: res.data.data[0].shop_address
         })
-        //全文
+        //全文超出省略
         let cont = that.data.shop_introduce
         //console.log(cont)
         let cont_2 = that.data.intro_2
@@ -166,10 +167,6 @@ Page({
     request.get({
       url: app.constData.server + '/api/carousels' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
-        //console.log(res.data.data.length)
-        // that.setData({
-        //   imgUrls: res.data.data
-        // })
         for (let x in res.data.data) {
           arr.push(res.data.data[0].attachment.link)
         }

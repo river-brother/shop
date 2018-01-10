@@ -1,21 +1,17 @@
 const app = getApp()
-let request = require('../..//lib/restful-request/request.js');
-let extConfig = wx.getExtConfigSync();
+let request = require('../..//lib/restful-request/request.js')
+let extConfig = wx.getExtConfigSync()
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    cont2_Height: 0,
+    cont2_Height: 0, //右边内容高
     curNav: 0,  //商品ID
     curIndex: 0, //index
-    typeName: '',
-    leftTabArray: [],
-    rightTabArray: [],
-    Tuwidth: 0,
-    Tuheight: 0
+    typeName: '', //商品名
+    leftTabArray: [], //左边数据
+    rightTabArray: [], //右边数据
+    Tuwidth: 0,  //图片宽
+    Tuheight: 0  //图片高
   },
 
   //左边分页请求右边数据
@@ -49,6 +45,7 @@ Page({
     })
   },
 
+  //点击商品跳转详情页面
   details: function(e){
     wx.navigateTo({
       url: '../details/details?id=' + e.currentTarget.dataset.id

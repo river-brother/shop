@@ -188,13 +188,12 @@ page{
 .merchant .intro .info{
   padding-left: 43rpx;
   padding-right: 40rpx;
+  text-indent: 1.5em;
 }
 .merchant .intro .info text{
   color: #949494;
   font-size: 26rpx;
   word-break:break-all;
-}
-.merchant .intro .info text:nth-child(1){
   text-indent: 2em;
 }
 .merchant .intro .info .full{
