@@ -5,6 +5,7 @@ Page({
   data: {
     zhu_H: 0, //主图高
     main_img: '', //主图
+    indexs: 1,
     title: '',  //商品名
     price: '',  //商品价格
     net: '净含量:',
@@ -18,7 +19,30 @@ Page({
     proHeight: 0, //产品图片高 
     heights: 0  //内容高
   },
+  //主图预览
+  zhu_tu: function (e) {
+    let pictures = this.data.main_img
+    console.log(pictures)
+    wx.previewImage({
+      current: '', // 当前显示图片的http链接
+      urls: [pictures] // 需要预览的图片http链接列表
+    })
+  },
 
+  //商品图片预览
+  previewlmg: function (e) {
+    //获取当前图片的下表
+    console.log(e)
+    let index = e.currentTarget.dataset.index
+    console.log(index)
+    //数据源
+    let pictures = this.data.list
+    wx.previewImage({
+      current: pictures[index], // 当前显示图片的http链接
+      urls: this.data.list // 需要预览的图片http链接列表
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,9 +68,9 @@ Page({
     request.get({
       url: app.constData.server + '/api/products/' + options.id,
       success: function (res) {
-        // console.log(res)
+        //console.log(res.data.data)
         that.setData({
-          main_img: res.data.data.main_img,
+          main_img: res.data.data.main_img.link,
           price: res.data.data.price,
           title: res.data.data.title,
           weight: res.data.data.weight,

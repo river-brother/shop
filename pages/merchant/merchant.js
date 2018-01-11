@@ -155,9 +155,9 @@ Page({
 
     //用户某个商品分类所有商品
     request.get({
-      url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]= 1',
+      url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]=' + 1,
       success: function (res) {
-        //console.log(res.data.data)
+        console.log(res)
         let id = res.data.data[0].id
         //console.log(id)
         that.setData({
