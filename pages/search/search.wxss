@@ -69,7 +69,6 @@ page{
 .cont2 .box image{
   width: 200rpx;
   height: 180rpx;
-  background: #cccccc;
 }
 .cont2 .box .rel{
   height: 180rpx;

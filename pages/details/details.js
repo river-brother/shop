@@ -5,7 +5,7 @@ Page({
   data: {
     zhu_H: 0, //主图高
     main_img: '', //主图
-    indexs: 1,
+    index_1: 1,
     title: '',  //商品名
     price: '',  //商品价格
     net: '净含量:',
@@ -22,7 +22,7 @@ Page({
   //主图预览
   zhu_tu: function (e) {
     let pictures = this.data.main_img
-    console.log(pictures)
+    //console.log(pictures)
     wx.previewImage({
       current: '', // 当前显示图片的http链接
       urls: [pictures] // 需要预览的图片http链接列表
@@ -32,9 +32,9 @@ Page({
   //商品图片预览
   previewlmg: function (e) {
     //获取当前图片的下表
-    console.log(e)
+    //console.log(e)
     let index = e.currentTarget.dataset.index
-    console.log(index)
+    //console.log(index)
     //数据源
     let pictures = this.data.list
     wx.previewImage({

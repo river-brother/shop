@@ -15,7 +15,7 @@ page{
   width: 100%;
   height: 355rpx;
   position: relative;
-  background: #cccccc;
+ 
 }
 .merchant .imgs image{
   width: 100%;
@@ -253,7 +253,6 @@ page{
 .merchant .shopp .list image{
   width: 335rpx;
   height: 288rpx;
-  background: #cccccc;
 }
 .merchant .shopp .list .title{
   width: 335rpx;
