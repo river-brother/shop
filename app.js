@@ -2,6 +2,7 @@ let request = require('/lib/restful-request/request.js')
 App({
 
   onLaunch: function () {
+    // request.getToken();
     // 获取用户信息
     // wx.getSetting({
     //   success: res => {
@@ -25,13 +26,14 @@ App({
   },
 
   syncUserInfo: function(){
+    let extConfig = wx.getExtConfigSync();
     wx.authorize({
       scope: 'scope.userInfo',
       success: function () {
         wx.getUserInfo({
           success: function (res) {
             request.post({
-              url: getApp().constData.server + '/api/users/sync',
+              url: getApp().constData.server + '/api/users/sync/' + extConfig.seller_id,
               data: {
                 iv: res.iv,
                 encrypted_data: res.encryptedData
