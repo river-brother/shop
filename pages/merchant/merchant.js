@@ -157,12 +157,13 @@ Page({
     request.get({
       url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]=' + 1,
       success: function (res) {
-        //console.log(res)
-        let id = res.data.data[0].id
-        //console.log(id)
-        that.setData({
-          list: res.data.data
-        })
+        console.log(res.data.data[0])
+        if (!res.data.data[0] === undefined) {
+          let id = res.data.data[0].id
+          that.setData({
+            list: res.data.data
+          })
+        }
       }
     })
     
