@@ -97,7 +97,6 @@ page{
   height: 162rpx;
   border-radius: 5rpx;
   margin-right: 27rpx;
-  background: #ccc;
 }
 .goods .cont .right .box .title{
   font-size: 30rpx;

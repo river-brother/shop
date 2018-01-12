@@ -11,7 +11,7 @@ page{
 .details .main{
   width: 100%;
   /* height: 425rpx; */
-   background: #ccc; 
+
 }
 .details .bigbox{
   width: 673rpx;
@@ -82,7 +82,6 @@ page{
   width: 610rpx;
   height: 300rpx;
   margin-top: 35rpx;
-  background: #cccccc;
 }
 .details .bigbox .referral image:last-child{
   margin-bottom: 20rpx;
