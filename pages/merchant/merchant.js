@@ -157,8 +157,8 @@ Page({
     request.get({
       url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]=' + 1,
       success: function (res) {
-        console.log(res.data.data[0])
-        if (!res.data.data[0] === undefined) {
+        // console.log(res.data.data[0])
+        if (res.data.data[0]) {
           let id = res.data.data[0].id
           that.setData({
             list: res.data.data
