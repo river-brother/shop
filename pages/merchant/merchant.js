@@ -171,10 +171,11 @@ Page({
     request.get({
       url: app.constData.server + '/api/carousels' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
+        //console.log(res.data.data)
         for (let x in res.data.data) {
-          arr.push(res.data.data[0].attachment.link)
+          arr.push(res.data.data[x].attachment.link)
         }
-        // console.log(arr)
+        //console.log(arr)
         that.setData({
           imgUrls: arr,
           nums: res.data.data.length
