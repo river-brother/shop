@@ -23,13 +23,13 @@ page{
 .merchant .dian{
   color: white;
   position: absolute;
-  width: 90rpx;
-  height: 40rpx;
+  width: 80rpx;
+  height: 45rpx;
   background: black;
-  border-radius: 22rpx;
+  border-radius: 30rpx;
   font-size: 26rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 45rpx;
   right: 20rpx;
   top: 34rpx;
 }
@@ -78,7 +78,8 @@ page{
 } */
 .merchant .theme .type{
   display: block;
-  width: 132rpx;
+  /* width: 132rpx; */
+  padding: 0 17rpx;
   height: 44rpx;
   border: 1rpx solid #cccccc;
   border-radius: 10rpx;
@@ -122,6 +123,7 @@ page{
 }
 .merchant .phone view:nth-child(1){
   display: flex;
+  align-items: center;
 } 
 .merchant .phone view:nth-child(1) image{
   width: 32rpx;
@@ -147,6 +149,7 @@ page{
 }
 .merchant .site view:nth-child(1){
   display: flex;
+  align-items: center;
 }
 .merchant .site view:nth-child(1) image{
   width: 32rpx;
@@ -270,7 +273,7 @@ page{
  @keyframes kf-marque-animation{ 
    0% { transform: translateX(0); }  
    50% { transform: translateX(-100%); }
-   50.001% { transform: translateX(100%); }
+   50.00000001% { transform: translateX(100%); }
    100% { transform: translateX(0); } 
 } 
 .marquee{
@@ -287,7 +290,7 @@ page{
   display: inline-block;
   position: relative;
   padding-left: 20rpx;
-  animation: kf-marque-animation 10s linear 2s infinite normal; /*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
+  animation: kf-marque-animation 6s linear 1s infinite normal; /*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
 }
 .hide{
   display: none;

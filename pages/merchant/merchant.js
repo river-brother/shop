@@ -13,8 +13,8 @@ Page({
     swiperCurrent: 1, 
     indicatorDots: false,
     autoplay: true,
-    interval: 3000,
-    duration: 1000,
+    interval: 2000,
+    duration: 500,
     num: 1,  //分子
     nums: 0, //分母
     shop_name: '', //点名
@@ -123,7 +123,7 @@ Page({
     request.get({
       url: app.constData.server + '/api/settings' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
-        //console.log(res)
+        // console.log(res)
         that.setData({
           shop_name: res.data.data[0].shop_name,
           type: res.data.data[0].shop_industry,
