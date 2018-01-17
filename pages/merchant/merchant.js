@@ -123,10 +123,10 @@ Page({
     request.get({
       url: app.constData.server + '/api/settings' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
-        // console.log(res)
+        console.log(res)
         that.setData({
           shop_name: res.data.data[0].shop_name,
-          type: res.data.data[0].industry.name,
+          type: res.data.data[0].shop_industry,
           shop_notice: res.data.data[0].shop_notice,
           shop_work_time: res.data.data[0].shop_work_time,
           shop_phone: res.data.data[0].shop_phone,
