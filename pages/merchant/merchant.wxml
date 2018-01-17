@@ -65,7 +65,7 @@
     <view class='box'>
       <block wx:for="{{list}}" wx:key="" wx:if="{{index < 10}}">
         <navigator url="../details/details?id={{item.id}}" class='list' catchtap="">
-          <image style="width:{{img2width}}px; height:{{img2height}}px" src='{{item.main_img}}'></image>
+          <image style="width:{{img2width}}px; height:{{img2height}}px" src='{{item.main_img.link}}'></image>
           <view class='title' style="width:{{img2width}}px">{{item.title}}</view>
           <view class='money'><text>￥</text><text>{{item.price}}</text></view>
         </navigator>
