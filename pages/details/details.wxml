@@ -8,9 +8,8 @@
         <view><text>￥</text><text>{{price}}</text></view>
       </view>
 
-      <view class="size {{kind === null  ? 'hide' : 'show'}}" >
-        <view  class="{{weight === '' ? 'hide' : 'show'}}"><text>{{net}}</text><text>{{weight}}</text></view>
-        <view class="{{over === '' ? 'hide' : 'show'}}"><text>{{expect}}</text><text>{{over}}</text></view> 
+      <view class="size {{spec ? 'show' : 'hide'}}" >
+        <text>{{spec}}</text>
       </view>
       
       <view class="referral {{desc === '' && list.length === 0 ? 'hide' : 'show'}}">

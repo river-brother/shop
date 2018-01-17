@@ -8,16 +8,13 @@ Page({
     index_1: 1,
     title: '',  //商品名
     price: '',  //商品价格
-    net: '净含量:',
-    weight: '', //G
-    expect: '保质期:',
-    over: '',   //天
     referral: '产品介绍:',
     desc: '', //介绍
     list: [], //产品图片
     proWidth: 0,  //产品图片宽
     proHeight: 0, //产品图片高 
-    heights: 0  //内容高
+    heights: 0,  //内容高
+    spec: '' //规格
   },
   //主图预览
   zhu_tu: function (e) {
@@ -73,8 +70,7 @@ Page({
           main_img: res.data.data.main_img.link,
           price: res.data.data.price,
           title: res.data.data.title,
-          weight: res.data.data.weight,
-          over: res.data.data.over,
+          spec: res.data.data.spec,
           desc: res.data.data.desc,
         })
         for(var x in res.data.data.attachments){
