@@ -25,8 +25,8 @@
     </view>
 
     <view class="logo">
-      <image src='../img/logos.png'></image>
-      <text>农夫未来科技提供技术支持</text>
+      <image src='../img/farmer.png'></image>
+      <text>农夫未来提供技术支持</text>
     </view> 
   
   </view>
