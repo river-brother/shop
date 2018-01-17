@@ -66,9 +66,9 @@ Page({
         addressName = this.data.addressName,
         address = this.data.address;
     // console.log(latitudes, longitudes)
-    wx.getLocation({
-      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-      success: function (res) {
+    // wx.getLocation({
+    //   type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
+    //   success: function (res) {
         wx.openLocation({
           latitude: latitudes, // 纬度，范围为-90~90，负数表示南纬
           longitude: longitudes, // 经度，范围为-180~180，负数表示西经
@@ -76,8 +76,8 @@ Page({
           address: address,
           scale: 28
         })
-      }
-    })
+    //   }
+    // })
   },
 
   //展开全部
