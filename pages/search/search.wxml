@@ -5,8 +5,8 @@
       <image src='../img/suosou.png'></image>
       <input type='text' placeholder='请输入商品名称' bindblur="bindblur" focus="true" confirm-type bindconfirm="my" ></input>
     </view>
-    <view class="btn" bindtap='sousuo'>搜索</view>
   </view>
+  <view class="btn" bindtap='sousuo'>搜索</view>
 </view>
 
 <scroll-view class='cont2' scroll-y style='min-height:{{cont2_Height}}px' >
