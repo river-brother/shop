@@ -7,7 +7,7 @@
       </swiper-item>
     </block>
   </swiper>
-  <text class='dian'>{{num}}/{{nums}}</text>
+  <text class="dian {{imgUrls.length === 0 ? 'hide':''}}">{{num}}/{{nums}}</text>
 
   <view class='theme'>
     <view class='name'>

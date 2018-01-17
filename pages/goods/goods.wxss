@@ -15,8 +15,8 @@ page{
 }
 .goods .sousuo view{
   background: #f5f5f5;
-  width: 705rpx;
-  height: 55rpx;
+  width: 700rpx;
+  height: 60rpx;
   border-radius: 30rpx;
   display: flex;
   justify-content: flex-start;
