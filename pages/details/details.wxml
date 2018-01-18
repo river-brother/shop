@@ -1,6 +1,7 @@
 <view class='details'>
-
-  <image class='main' src='{{main_img}}' style="height:{{zhu_H}}px;" bindtap='zhu_tu' ></image>
+  <view style="height:{{zhu_H}}px;width:100%; background: url({{main_img}}) no-repeat; background-size:cover;" bindtap='zhu_tu'>
+     <!-- <image class='main' src='{{main_img}}' style='width:100%;height:100%'  bindtap='zhu_tu' ></image>  -->
+  </view>
   <view class='bigbox'>
     <view class='box' style='min-height:{{heights}}px'>
       <view class='name'>

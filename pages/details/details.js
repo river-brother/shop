@@ -68,7 +68,7 @@ Page({
         //console.log(res.data.data)
         that.setData({
           main_img: res.data.data.main_img.link,
-          price: res.data.data.price,
+          price: res.data.data.price / 100,
           title: res.data.data.title,
           spec: res.data.data.spec,
           desc: res.data.data.desc,

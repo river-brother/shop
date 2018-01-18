@@ -29,7 +29,7 @@ Page({
     latitudes: 0,//维度
     longitudes: 0, //经度
     addressName: '', //地图店名
-    address: '',   //地图地址
+    address: '',   //地图地址 
   },
 
   //轮播
