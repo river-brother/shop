@@ -17,7 +17,7 @@ page{
   border-radius: 10rpx;
   background: white;
   position: absolute;
-  box-shadow: 0px 20rpx 50rpx #969696;
+  box-shadow: 0px 5rpx 80rpx #969696;
   top: 350rpx;
 }
 .details .bigbox .name{

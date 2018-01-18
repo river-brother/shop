@@ -15,14 +15,14 @@ page{
 }
 .sousuo .cont1{
   background: #f5f5f5;
-  width: 650rpx;
+  width: 622rpx;
   height: 60rpx;
   border-radius: 30rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 26rpx;
-  margin-left: 20rpx;  
+  margin-left: 30rpx; 
 }
 .sousuo .cont1 .left{
   display: flex;
@@ -42,8 +42,8 @@ page{
 
 .sousuo .btn{
   font-size: 26rpx;
-  color: black;
-  margin-right: 20rpx;
+  color: #4593eb;
+  margin-right: 26rpx;
 }
 
 .cont2{
@@ -79,4 +79,9 @@ page{
 }
 .cont2 .box .rel .money{
   color: #ff2341;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.hide{
+  display: none;
 }

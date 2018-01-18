@@ -16,7 +16,7 @@
           <image src='{{item.main_img}}' style='height:{{srcH}}px;width:{{srcW}}px'></image>
           <view class='rel' style='height:{{srcH}}px'>
             <text class='title'>{{item.title}}</text>
-            <view class='money'><text>￥</text><text>{{item.price / 100}}</text></view>
+            <view class='money'><text class="{{item.price === '' ? 'hide':''}}">￥</text><text>{{item.price / 100}}</text></view>
           </view>
         </view>
       </navigator>

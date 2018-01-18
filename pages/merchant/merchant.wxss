@@ -46,7 +46,7 @@ page{
   align-items: center;
   justify-content: center;
   padding-top: 40rpx;
-  box-shadow: 0px 20rpx 50rpx #969696;
+  box-shadow: 0px 5rpx 80rpx #969696;
 }
 .merchant .enter{
   width: 10rpx;
@@ -167,7 +167,7 @@ page{
 }
 .merchant .intro> view:nth-child(1){
   width: 200rpx;
-  border: 0.5px solid #161616;
+  border: 1px solid #161616;
   background: black;
   margin: auto;
   margin-top: 45rpx;
@@ -211,7 +211,7 @@ page{
 }
 .merchant .shopp> view:nth-child(1){
   width: 200rpx;
-  border:  0.5px solid #161616;
+  border:  1px solid #161616;
   background: black;
   margin: auto;
   margin-top: 45rpx;
@@ -266,6 +266,9 @@ page{
   font-size: 28rpx;
   margin-top: 50rpx;
   margin-bottom: 30rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 .logo{
   background: #f5f5f5;

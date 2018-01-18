@@ -5,6 +5,7 @@
       <image src='../img/suosou.png'></image>
       <input type='text' placeholder='搜索' disabled></input>
     </view>
+    <text>搜索</text>
   </view>
 
   <view class='cont'>
@@ -26,7 +27,7 @@
                 <image style='width:{{Tuwidth}}px;height:{{Tuheight}}px' src='{{item.main_img.link}}'></image>
                 <view class='rel' style='height:{{Tuheight}}px'>
                   <text class='title'>{{item.title}}</text>
-                  <view class='money'><text>￥</text><text>{{item.price / 100}}</text></view>
+                  <view class="money"><text class="{{item.price === '' ? 'hide':'show'}}">￥</text><text>{{item.price / 100}}</text></view>
                 </view>
             </view>
         </block>
