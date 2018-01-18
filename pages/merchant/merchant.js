@@ -13,7 +13,7 @@ Page({
     swiperCurrent: 1, 
     indicatorDots: false,
     autoplay: true,
-    interval: 2000,
+    intervals: 2000,
     duration: 500,
     num: 1,  //分子
     nums: 0, //分母
@@ -30,6 +30,13 @@ Page({
     longitudes: 0, //经度
     addressName: '', //地图店名
     address: '',   //地图地址 
+
+    // 广告
+    marqueePace: 0.5,//滚动速度
+    marqueeDistance: 0,//初始滚动距离
+    size: 12,
+    orientation: 'left',//滚动方向
+    interval: 8 // 时间间隔
   },
 
   //轮播
@@ -149,7 +156,16 @@ Page({
         that.setData({
           intro_2: intro_slice,
           action: true
-        })    
+        })  
+        // 广告
+        var length = res.data.data[0].shop_notice.length * that.data.size;//文字长度
+        var windowWidth = wx.getSystemInfoSync().windowWidth-150;// 屏幕宽度
+        console.log(windowWidth)
+        that.setData({
+          length: length,
+          windowWidth: windowWidth
+        });
+        that.run1();  
       }
     })
 
@@ -198,5 +214,25 @@ Page({
         })
       }
     })
-  }
+  },
+  onShow: function () {
+    
+  },
+  run1: function () {
+    var vm = this;
+    var interval = setInterval(function () {
+      if (-vm.data.marqueeDistance < vm.data.length) {
+        vm.setData({
+          marqueeDistance: vm.data.marqueeDistance - vm.data.marqueePace,
+        });
+      } else {
+        clearInterval(interval);
+        vm.setData({
+          marqueeDistance: vm.data.windowWidth
+        });
+        vm.run1();
+      }
+    }, vm.data.interval);
+  },
+
 })

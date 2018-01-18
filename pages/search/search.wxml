@@ -1,9 +1,8 @@
-
 <view class='sousuo'>
   <view class='cont1'>
     <view class='left'>
       <image src='../img/suosou.png'></image>
-      <input type='text' placeholder='请输入商品名称' bindblur="bindblur" focus="true" confirm-type bindconfirm="my" ></input>
+      <input type='text' placeholder='请输入商品名称' bindblur="bindblur" focus="true" confirm-type="search" bindconfirm="my" ></input>
     </view>
   </view>
   <view class="btn" bindtap='sousuo'>搜索</view>
@@ -20,9 +19,15 @@
           </view>
         </view>
       </navigator>
-    </block>
-  
+    </block> 
+
+    <view class="status {{rightTabArray.length == 0 && inlit == 1 ? '': 'hide'}}">
+      <image class=" " src='../img/status.png'></image>
+    </view>
 </scroll-view>
+
+
+
 
 <view class='logo'>
   <image src='../img/farmer.png'></image>

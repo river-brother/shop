@@ -10,6 +10,7 @@ page{
   justify-content: center;
   align-items: center;
   background: white;
+  -webkit-overflow-scrolling: touch;
 }
 .merchant .imgs{
   width: 100%;
@@ -46,7 +47,7 @@ page{
   align-items: center;
   justify-content: center;
   padding-top: 40rpx;
-  box-shadow: 0px 5rpx 80rpx #969696;
+  box-shadow: 0px 0.5rpx 15rpx 0rpx #D9D9D9;
 }
 .merchant .enter{
   width: 10rpx;
@@ -84,7 +85,7 @@ page{
   border: 1rpx solid #cccccc;
   border-radius: 10rpx;
   color: #949494;
-  font-size: 22rpx;
+  font-size: 26rpx;
   text-align: center;
   line-height: 44rpx;
   margin-top: 22rpx;
@@ -95,18 +96,6 @@ page{
   font-size: 26rpx;
   margin-bottom: 35rpx;
   letter-spacing: 2rpx;
-}
-.merchant .theme .notice{
-  width: 530rpx;
-  font-size: 26rpx;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  letter-spacing: 2rpx;
-  margin-bottom: 30rpx;
-}
-.merchant .theme .notice image{
-  padding-right: 20rpx;
 }
 .merchant .phone{
   width: 100%;
@@ -270,15 +259,12 @@ page{
   display: flex;
   align-items: center;
 }
-.logo{
-  background: #f5f5f5;
-}
- @keyframes kf-marque-animation{ 
+ /* @keyframes kf-marque-animation{ 
    0% { transform: translateX(0); }  
    50% { transform: translateX(-100%); }
    50.00000001% { transform: translateX(100%); }
    100% { transform: translateX(0); } 
-} 
+}  */
 .marquee{
     width: 100%;
     height: 25px;
@@ -289,12 +275,13 @@ page{
     position: relative;
     font-size: 26rpx;
 }
-.marquee .content{
+/*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
+/* .marquee .content{
   display: inline-block;
   position: relative;
   padding-left: 20rpx;
-  animation: kf-marque-animation 6s linear 1s infinite normal; /*依次为名称 运动持续时间 动画的频率 延迟时间 定义循环方式 定义动画方向 */
-}
+  animation: kf-marque-animation 6s linear 1s infinite normal; 
+} */
 .hide{
   display: none;
 }
@@ -306,3 +293,23 @@ page{
   width: 100%;
 }
  .hover-class{}   /*需要 */
+
+ /* 广告样式 */
+ .merchant .theme .notice image{
+  padding-right: 20rpx;
+}
+ .merchant .theme .notice{
+  width: 540rpx;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.merchant .theme .notice .marquee{
+  position: relative;
+}
+.merchant .theme .notice .content{
+  white-space: nowrap;
+  position: absolute; 
+}

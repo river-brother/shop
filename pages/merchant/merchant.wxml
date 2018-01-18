@@ -1,6 +1,6 @@
 <view class='merchant'>
 
-  <swiper class='imgs' style="height:{{imgheight}}px;" indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="swiperCurrent" bindchange="swiperChange">
+  <swiper class='imgs' style="height:{{imgheight}}px;" indicator-dots="{{indicatorDots}}" circular="true" autoplay="{{autoplay}}" interval="{{intervals}}" duration="{{duration}}" current="swiperCurrent" bindchange="swiperChange">
     <block wx:for="{{imgUrls}}" wx:key="">
       <swiper-item>
         <image src="{{item}}" style="height:{{imgheight}}px;" class="slide-image" data-src="{{image}}" bindtap='previewlmg' data-index="{{index}}"/>
@@ -19,8 +19,8 @@
     <view class='notice'>
       <image class='laba' src='../img/systemprompt_fill@2x.png'></image>
       <view class="marquee">
-        <view class="content">
-            <text>{{shop_notice}}</text>
+        <view class="content" data-cont='{{shop_notice}}' style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">        
+         {{shop_notice}}
         </view>
       </view>
     </view>

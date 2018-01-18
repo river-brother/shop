@@ -14,10 +14,10 @@ page{
 }
 .details .bigbox{
   width: 673rpx;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   background: white;
   position: absolute;
-  box-shadow: 0px 5rpx 80rpx #969696;
+  box-shadow: 0px 0rpx 15rpx 0rpx #D9D9D9;
   top: 350rpx;
 }
 .details .bigbox .name{

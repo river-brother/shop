@@ -6,7 +6,7 @@ page{
   height: 100rpx;
   border: 1px solid #f5f5f5;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background: white;
   position: fixed;
@@ -33,17 +33,22 @@ page{
 .sousuo .cont1 image{
   width: 21rpx;
   height: 21rpx;
-  padding-left: 62rpx;
+  margin-left: 62rpx;
   margin-right: 20rpx;
+  display: block;
 }
 .sousuo .cont1 input{
   color: #949494; 
+  width: 500rpx;
 }
 
 .sousuo .btn{
   font-size: 26rpx;
   color: #4593eb;
-  margin-right: 26rpx;
+  min-width:100%; 
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
 }
 
 .cont2{
@@ -84,4 +89,25 @@ page{
 }
 .hide{
   display: none;
+}
+
+.status{
+  
+  text-align: center;
+ 
+}
+.status image{
+  width: 323rpx;
+  height: 366rpx;
+  margin-top: 228rpx;
+}
+
+::-webkit-scrollbar {
+
+  width: 0;
+
+  height: 0;
+
+  color: transparent;
+
 }

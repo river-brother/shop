@@ -5,7 +5,6 @@
       <image src='../img/suosou.png'></image>
       <input type='text' placeholder='搜索' disabled></input>
     </view>
-    <text>搜索</text>
   </view>
 
   <view class='cont'>

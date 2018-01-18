@@ -7,7 +7,8 @@ Page({
     srcW: 0, //图片宽
     cont2_Height: 0, //内容高
     text: '', //输入的内容
-    rightTabArray: []
+    rightTabArray: [],
+    inlit: -1
   },
 
   //输入框失去焦点时触发
@@ -27,14 +28,15 @@ Page({
         success: function (res) {
           //console.log(res.data.data)
           that.setData({
-            rightTabArray: res.data.data
+            rightTabArray: res.data.data,
+            inlit: 1
           })
         }
       })
   },
 
   //点击完成/搜索
-  bindconfirm: function() {
+  my: function() {
     let that = this
     let text = this.data.text.value
     request.get({
@@ -42,7 +44,8 @@ Page({
       success: function (res) {
         console.log(res.data.data)
         that.setData({
-          rightTabArray: res.data.data
+          rightTabArray: res.data.data,
+          inlit: 1
         })
       }
     })
