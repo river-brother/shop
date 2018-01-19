@@ -23,6 +23,9 @@ App({
     //     }
     //   }
     // })
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   },
 
   syncUserInfo: function(){
