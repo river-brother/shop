@@ -146,6 +146,10 @@ page{
   padding-left: 34rpx;
   padding-right: 22rpx;
 }
+.merchant .site view:nth-child(1) text{
+  display: block;
+  width: 480rpx;
+}
 .merchant .site view:nth-child(2) text{
   color: #949494;
   padding-right: 15rpx; 
