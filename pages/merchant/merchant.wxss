@@ -117,8 +117,9 @@ page{
 .merchant .phone view:nth-child(1) image{
   width: 32rpx;
   height: 32rpx;
-  padding-left: 34rpx;
-  padding-right: 22rpx; 
+  margin-left: 34rpx;
+  margin-right: 22rpx; 
+  display: block;
 }
 .merchant .phone view:nth-child(2) text{
   color: #949494;
@@ -143,8 +144,9 @@ page{
 .merchant .site view:nth-child(1) image{
   width: 32rpx;
   height: 32rpx;
-  padding-left: 34rpx;
-  padding-right: 22rpx;
+  margin-left: 34rpx;
+  margin-right: 22rpx;
+  display: block;
 }
 .merchant .site view:nth-child(1) text{
   display: block;
