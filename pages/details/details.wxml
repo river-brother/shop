@@ -6,7 +6,7 @@
     <view class='box' style='min-height:{{heights}}px'>
       <view class='name'>
         <view><text>{{title}}</text></view>
-        <view><text class="{{item.price === '' ? 'hide':''}}">￥</text><text>{{price}}</text></view>
+        <view><text class="{{item.price === '' || !display_price ? 'hide':''}}">￥</text><text class="{{ display_price ? '' : 'hide' }}">{{price}}</text></view>
       </view>
 
       <view class="size {{spec ? 'show' : 'hide'}}" >

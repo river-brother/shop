@@ -1,5 +1,5 @@
 const app = getApp()
-let request = require('../..//lib/restful-request/request.js')
+let request = require('../../lib/restful-request/request.js')
 let extConfig = wx.getExtConfigSync()
 
 Page({
@@ -11,7 +11,8 @@ Page({
     leftTabArray: [], //左边数据
     rightTabArray: [], //右边数据
     Tuwidth: 0,  //图片宽
-    Tuheight: 0  //图片高
+    Tuheight: 0,  //图片高
+    display_price: true,
   },
 
   //左边分页请求右边数据
@@ -58,6 +59,17 @@ Page({
   onLoad: function (options) {
     let that = this
     let curNav = this.data.curNav
+
+    request.get({
+      url: app.constData.server + '/api/settings' + '?filters[user_id]=' + extConfig.seller_id,
+      success: function (res) {
+        // console.log(res)
+        that.setData({
+          display_price: res.data.data[0].display_price
+        })
+      }
+    })
+
     request.get({
       url: app.constData.server + '/api/types' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {

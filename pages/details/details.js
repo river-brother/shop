@@ -1,5 +1,6 @@
 const app = getApp()
-let request = require('../..//lib/restful-request/request.js')
+let request = require('../../lib/restful-request/request.js')
+let extConfig = wx.getExtConfigSync()
 
 Page({
   data: {
@@ -14,7 +15,8 @@ Page({
     proWidth: 0,  //产品图片宽
     proHeight: 0, //产品图片高 
     heights: 0,  //内容高
-    spec: '' //规格
+    spec: '', //规格
+    display_price: true,
   },
   //主图预览
   zhu_tu: function (e) {
@@ -45,6 +47,17 @@ Page({
    */
   onLoad: function (options) {
     let that = this
+
+    request.get({
+      url: app.constData.server + '/api/settings' + '?filters[user_id]=' + extConfig.seller_id,
+      success: function (res) {
+        // console.log(res)
+        that.setData({
+          display_price: res.data.data[0].display_price
+        })
+      }
+    })
+
     //图片的宽高
     wx.getSystemInfo({
       success: function (res) {

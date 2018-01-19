@@ -67,7 +67,7 @@
         <navigator url="../details/details?id={{item.id}}" class='list' catchtap="" hover-class="hover-class">
           <image style="width:{{img2width}}px; height:{{img2height}}px" src='{{item.main_img.link}}'></image>
           <view class='title' style="width:{{img2width}}px">{{item.title}}</view>
-          <view class='money'><text class="{{item.price === '' ? 'hide':'show'}}">￥</text><text>{{item.price / 100}}</text></view>
+          <view class="money"><text class="{{item.price === '' || !display_price ? 'hide':'show'}}">￥</text><text class="{{display_price ? 'show' : 'hide'}}">{{item.price / 100}}</text></view>
         </navigator>
       </block>
     </view>

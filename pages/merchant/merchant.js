@@ -36,7 +36,8 @@ Page({
     marqueeDistance: 0,//初始滚动距离
     size: 12,
     orientation: 'left',//滚动方向
-    interval: 8 // 时间间隔
+    interval: 8, // 时间间隔
+    display_price: true
   },
 
   //轮播
@@ -142,7 +143,8 @@ Page({
           latitudes: res.data.data[0].shop_latitude,
           longitudes: res.data.data[0].shop_longitude,
           addressName: res.data.data[0].shop_name,
-          address: res.data.data[0].shop_address
+          address: res.data.data[0].shop_address,
+          display_price: res.data.data[0].display_price
         })
         //全文超出省略
         let cont = that.data.shop_introduce
