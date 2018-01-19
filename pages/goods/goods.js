@@ -61,7 +61,7 @@ Page({
     request.get({
       url: app.constData.server + '/api/types' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
-        console.log(res.data)
+        //console.log(res.data)
         that.setData({
           leftTabArray: res.data.data,
           curNav: res.data.data[0].id,

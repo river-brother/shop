@@ -160,7 +160,7 @@ Page({
         // 广告
         var length = res.data.data[0].shop_notice.length * that.data.size;//文字长度
         var windowWidth = wx.getSystemInfoSync().windowWidth-150;// 屏幕宽度
-        console.log(windowWidth)
+        // console.log(windowWidth)
         that.setData({
           length: length,
           windowWidth: windowWidth
