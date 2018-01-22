@@ -131,7 +131,7 @@ Page({
     request.get({
       url: app.constData.server + '/api/settings' + '?filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
-        console.log(res.data.data[0])
+        //console.log(res.data.data[0])
         that.setData({
           shop_name: res.data.data[0].shop_name,
           type: res.data.data[0].shop_industry,
