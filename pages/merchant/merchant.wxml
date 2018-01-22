@@ -14,7 +14,7 @@
       <text>{{shop_name}}</text>
       <!-- <view><text>{{else}}</text><image class='enter' src='../img/enter.png'></image></view> -->
     </view>
-    <text class='type'>{{type}}</text>
+    <text class="type {{type === '' ? 'hide':''}}">{{type}}</text>
     <text class='time'>营业时间: {{shop_work_time}}</text>
     <view class='notice'>
       <image class='laba' src='../img/systemprompt_fill@2x.png'></image>

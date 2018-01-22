@@ -78,8 +78,6 @@ page{
   display: none;
 } */
 .merchant .theme .type{
-  display: block;
-  /* width: 132rpx; */
   padding: 0 17rpx;
   height: 44rpx;
   border: 1rpx solid #cccccc;
