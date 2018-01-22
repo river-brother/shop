@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.7.2",
 	"appid": "wx9ee76728c5631a78",
-	"projectname": "nearby_store2",
+	"projectname": "nearby_store",
 	"condition": {
 		"search": {
 			"current": -1,
