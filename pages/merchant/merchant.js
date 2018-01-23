@@ -25,6 +25,7 @@ Page({
     shop_address: '', //地址
     shop_introduce: '', //简介
     intro_2: '', //简介副本
+    mode: 'widthFix',
     list: [], //商品
     latitudes: 0,//维度
     longitudes: 0, //经度

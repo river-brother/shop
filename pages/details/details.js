@@ -5,6 +5,7 @@ let extConfig = wx.getExtConfigSync()
 Page({
   data: {
     zhu_H: 0, //主图高
+    zhu_W: 0,
     main_img: '', //主图
     index_1: 1,
     title: '',  //商品名
@@ -17,6 +18,8 @@ Page({
     heights: 0,  //内容高
     spec: '', //规格
     display_price: true,
+    mode: 'widthFix',
+    zhu: 'widthFix'
   },
   //主图预览
   zhu_tu: function (e) {
@@ -65,6 +68,7 @@ Page({
         var windowHeight = res.windowHeight
         //console.log(windowWidth, windowHeight)
         that.setData({
+          zhu_W: windowWidth,
           zhu_H: windowWidth / 1.7,//高
           proWidth: windowWidth / 1.2,
           proHeight: windowWidth / 1.2 / 2,

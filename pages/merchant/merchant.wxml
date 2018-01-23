@@ -65,7 +65,10 @@
     <view class='box'>
       <block wx:for="{{list}}" wx:key="" wx:if="{{index < 10}}">
         <navigator url="../details/details?id={{item.id}}" class='list' catchtap="" hover-class="hover-class">
-          <image style="width:{{img2width}}px; height:{{img2height}}px" src='{{item.main_img.link}}'></image>
+           <!-- <image class='img' style="width:{{img2width}}px; height:{{img2height}}px" mode='{{mode}}' src='{{item.main_img}}'></image>  -->
+
+           <view class='img' style='width:{{img2width}}px; height:{{img2height}}px;background: url({{item.main_img.link}}) no-repeat center;background-size:{{img2width}}px'></view> 
+
           <view class='title' style="width:{{img2width}}px">{{item.title}}</view>
           <view class="money"><text class="{{item.price === '' || !display_price ? 'hide':'show'}}">￥</text><text class="{{display_price ? 'show' : 'hide'}}">{{item.price / 100}}</text></view>
         </navigator>

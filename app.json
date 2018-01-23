@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/start/start",
     "pages/merchant/merchant",
+    "pages/details/details",
+    "pages/start/start",
     "pages/search/search",
-    "pages/goods/goods",
-    "pages/details/details"
+    "pages/goods/goods" 
   ],
   "tabBar": {
     "color": "#b1b1b1",

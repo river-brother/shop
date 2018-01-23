@@ -246,9 +246,7 @@ page{
   padding-left: 20rpx;
   padding-right: 20rpx;
 }
-.merchant .shopp .list image{
-  width: 335rpx;
-  height: 288rpx;
+.merchant .shopp .list .img{
 }
 .merchant .shopp .list .title{
   width: 335rpx;
