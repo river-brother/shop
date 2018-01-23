@@ -1,5 +1,5 @@
 <view class='details'>
-  <view style="height:{{zhu_H}}px;width:100%; background: url({{main_img}}) no-repeat; background-size:cover;" bindtap='zhu_tu'>
+  <view style="height:{{zhu_H}}px;width:100%; background: url({{main_img}}) no-repeat; background-size:cover;background-position:center;" bindtap='zhu_tu'>
      <!-- <image class='main' src='{{main_img}}' style='width:100%;height:100%'  bindtap='zhu_tu' ></image>  -->
   </view>
   <view class='bigbox'>
@@ -15,10 +15,11 @@
       
       <view class="referral {{desc === '' && list.length === 0 ? 'hide' : 'show'}}">
         <text class="{{desc === null ? 'hide' : 'show'}}">{{referral}}</text>
-        <view>{{desc}}</view>
+        <view class='desc'>{{desc}}</view>
         <view style='width:{{proWidth}}px'>
           <block wx:for="{{list}}" wx:key="" wx:if="{{index < 5}}">
-            <image src='{{item}}' style='width:{{proWidth}}px;height:{{proHeight}}px' data-index="{{index}}" bindtap='previewlmg'></image>
+            <view class='details-img' style='width:{{proWidth}}px;height:{{proHeight}}px;background: url({{item}}) no-repeat; background-size:cover;background-position:center;' data-index="{{index}}" bindtap='previewlmg'></view>
+            <!-- <image src='{{item}}' style='width:{{proWidth}}px;height:{{proHeight}}px' data-index="{{index}}" bindtap='previewlmg'></image> -->
           </block>
         </view>      
       </view>

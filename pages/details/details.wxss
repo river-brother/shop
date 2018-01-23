@@ -74,19 +74,18 @@ page{
   margin-top: 35rpx;
   margin-bottom: 35rpx;
 }
-.details .bigbox .referral view:nth-child(2){
+.details .bigbox .referral .desc{
   font-size: 26rpx;
   line-height: 38rpx;
   letter-spacing: 2rpx;
   margin-bottom: 10rpx;
 }
-
-.details .bigbox .referral image{
+.details .bigbox .referral .details-img{
   width: 610rpx;
   height: 300rpx;
   margin-top: 35rpx;
 }
-.details .bigbox .referral image:last-child{
+.details .bigbox .referral .details-img:last-child{
   margin-bottom: 20rpx;
 }
  .details .show{

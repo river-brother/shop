@@ -90,7 +90,7 @@ Page({
           arr.push(res.data.data.attachments[x].link)
         }
         that.setData({
-          list:arr
+         list:arr
         })
       }
     })
