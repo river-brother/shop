@@ -24,9 +24,9 @@ Page({
     let that = this
     let text = this.data.text.value
     request.get({
-        url: app.constData.server + '/api/products' + '?filters[title]=' + text,
+      url: app.constData.server + '/api/products' + '?filters[title]=' + text + '&filters[user_id]=' + extConfig.seller_id,
         success: function (res) {
-          //console.log(res.data.data)
+          console.log(res.data.data)
           that.setData({
             rightTabArray: res.data.data,
             inlit: 1
@@ -40,7 +40,7 @@ Page({
     let that = this
     let text = this.data.text.value
     request.get({
-      url: app.constData.server + '/api/products' + '?filters[title]=' + text,
+      url: app.constData.server + '/api/products' + '?filters[title]=' + text + '&filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
         console.log(res.data.data)
         that.setData({

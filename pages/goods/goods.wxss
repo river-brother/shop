@@ -101,7 +101,7 @@ page{
 .goods .cont .right .box:last-child{
   margin-bottom: 0rpx;
 }
-.goods .cont .right .box image{
+.goods .cont .right .box .img{
   width: 200rpx;
   height: 162rpx;
   border-radius: 5rpx;

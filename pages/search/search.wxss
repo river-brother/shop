@@ -66,7 +66,7 @@ page{
   border-bottom: 1px solid #dddddd;
   padding-left: 30rpx;
 }
-.cont2 .box image{
+.cont2 .box .img{
   width: 200rpx;
   height: 180rpx;
 }
