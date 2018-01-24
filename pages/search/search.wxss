@@ -63,7 +63,7 @@ page{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #f5f5f5;
   padding-left: 30rpx;
 }
 .cont2 .box .img{
