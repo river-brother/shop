@@ -12,7 +12,7 @@ Page({
   },
 
   //输入框失去焦点时触发
-  bindblur: function (e) {
+  bindinput: function (e) {
     let text = e.detail
     this.setData({
       text: text
@@ -26,7 +26,6 @@ Page({
     request.get({
       url: app.constData.server + '/api/products' + '?filters[title]=' + text + '&filters[user_id]=' + extConfig.seller_id,
         success: function (res) {
-          console.log(res.data.data)
           that.setData({
             rightTabArray: res.data.data,
             inlit: 1
@@ -42,7 +41,6 @@ Page({
     request.get({
       url: app.constData.server + '/api/products' + '?filters[title]=' + text + '&filters[user_id]=' + extConfig.seller_id,
       success: function (res) {
-        console.log(res.data.data)
         that.setData({
           rightTabArray: res.data.data,
           inlit: 1
@@ -70,18 +68,18 @@ Page({
     })
 
     //用户某个商品分类所有商品
-    request.get({
-      url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]= 1',
-      success: function (res) {
-        //console.log(res.data.data)
-        if (res.data.data[0]) {
-          let id = res.data.data[0].id
-          // console.log(id)
-          that.setData({
-            list: res.data.data
-          })
-        }
-      }
-    })
+    // request.get({
+    //   url: app.constData.server + '/api/products' + '?filters[user_id]=' + extConfig.seller_id + '&filters[recommend]= 1',
+    //   success: function (res) {
+    //     //console.log(res.data.data)
+    //     if (res.data.data[0]) {
+    //       let id = res.data.data[0].id
+    //       // console.log(id)
+    //       that.setData({
+    //         list: res.data.data
+    //       })
+    //     }
+    //   }
+    // })
   }
 })

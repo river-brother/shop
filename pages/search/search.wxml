@@ -2,7 +2,7 @@
   <view class='cont1'>
     <view class='left'>
       <image src='../img/suosou.png'></image>
-      <input type='text' placeholder='请输入商品名称' bindblur="bindblur" focus="true" confirm-type="search" bindconfirm="my" ></input>
+      <input type='text' placeholder='请输入商品名称' bindinput="bindinput" focus="true" confirm-type="search" bindconfirm="sousuo" ></input>
     </view>
   </view>
   <view class="btn" bindtap='sousuo'>搜索</view>
