@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/start/start",
     "pages/merchant/merchant",
     "pages/details/details",
-    "pages/start/start",
     "pages/search/search",
     "pages/goods/goods" 
   ],
