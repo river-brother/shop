@@ -127,6 +127,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
     let that = this;
     //用户门店个人信息
     request.get({
